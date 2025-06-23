@@ -59,7 +59,7 @@
 			<c style="color:#ABABDC;">luma_key</c> = <c style="color:#DCDCAA;">DirectShowSource</c>(<c style="color:#CE9178;">"luma_key.webm"</c>).<c style="color:#DCDCAA;">ConvertTORGB32()</c>
 			<br><br>
 			<c style="color:#ABDCAB;">background</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"background.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, end=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>)
-			<br><br>
+			<br>
 			<c style="color:#ABDCDC;">foreground</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"foreground.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, send=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>, pixel_type=<c style="color:#CE9178;">"RGB32"</c>)
 			<br><br>
 			<c style="color:#DCABDC;">maskclip</c> = <c style="color:#DCDCAA;">ColorKeyMask</c>((<c style="color:#ABABDC;">luma_key</c>, <c style="color:#B5CEA8;">$000000</c>, <c style="color:#B5CEA8;">0</c>)
@@ -78,9 +78,13 @@
 		<br><br>
 		<h2>Additional notes.</h2>
 		<p>
-			In the example the <c style="color:#CE9178;">webm</c> format was used,
+			In the example above the <c style="color:#CE9178;">webm</c> format was used,
 			<br>
-			which is why it relied on <c style="color:#DCDCAA;">DirectShowSource</c>.
+			which is why <c style="color:#DCDCAA;">DirectShowSource</c> was relied on and showcased in the script.
+			<br><br>
+			The example above also has more layers stacked upon it compared to the provided script,
+			<br>
+			this is done to showcase what you can do, and is simplified to the bare minimum for first time use.
 			<br><br>
 			If your videos are in the <c style="color:#CE9178;">avi</c> format use <c style="color:#DCDCAA;">AVISource</c> for instance.
 			<br><br>
