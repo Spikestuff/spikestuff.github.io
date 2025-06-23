@@ -64,13 +64,13 @@
 		<p>
 			We can now do the following:
 			<br><br>
-			<b>&gt; lsblk</b>
+			<b>> lsblk</b>
 			<br><br>
 			This is to make sure the kit is installed.
 			<br>
-			In my case it's "<c style="color:#ABABDC;"><b>&gt; nvme0n1</b></c>" and the 512GB drive.
+			In my case it's "<c style="color:#ABABDC;"><b>> nvme0n1</b></c>" and the 512GB drive.
 			<br><br>
-			<b>&gt; blkid /dev/<c style="color:#ABABDC;">nvme0n1<c></b>
+			<b>> blkid /dev/<c style="color:#ABABDC;">nvme0n1<c></b>
 			<br><br>
 			This is to get the UUID for a later step in this part.
 			<br>
@@ -81,7 +81,7 @@
 			
 			Next we're going to make a folder to mount the drive to (Linux is case sensitive):
 			<br><br>
-			<b>&gt; sudo mkdir /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> sudo mkdir /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
 			<br><br>
 			In my case I've made the mounted drive "<c style="color:#DCABAB;">ps2smb</c>".
 			<br>
@@ -89,16 +89,16 @@
 			<br><br>
 			You can also now validate if you're able to mount your drive by writing the command:
 			<br><br>
-			<b>&gt; sudo mount /dev/<c style="color:#ABABDC;">nvme0n1</c> /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> sudo mount /dev/<c style="color:#ABABDC;">nvme0n1</c> /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
 			<br><br>
 			After mounting you want to give yourself full permission to the folder:
 			<br><br>
-			<b>&gt; chmod 777 /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> chmod 777 /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
 			
 			<br><br>
 			Now we want to set up the drive to automatically mount:
 			<br><br>
-			<b>&gt; sudo gedit /etc/fstab</b>
+			<b>> sudo gedit /etc/fstab</b>
 			<br>
 			<sup style="font-size: 75%;">Personally I use <i>gedit</i> as my text editor as I dislike looking through a terminal (nano).</sup>
 			<br><br>
@@ -126,11 +126,11 @@
 			<br><br>
 			After that, we can now open up the terminal and install the following:
 			<br><br>
-			<b>&gt; sudo apt install samba samba-common-bin</b>
+			<b>> sudo apt install samba samba-common-bin</b>
 			<br><br>
 			Then we can load into the new file created by samba:
 			<br><br>
-			<b>&gt; sudo gedit /etc/samba/smb.conf</b>
+			<b>> sudo gedit /etc/samba/smb.conf</b>
 			<br><br>
 			Towards the top of the configuration file place the following:
 			<br><br><b>
