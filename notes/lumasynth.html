@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
+
+	<style>
+		a:link {
+			color: #BC65CB;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #B0AF9D;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: black;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		h1 {
+			color: #B0AF9D;
+		}
+		h2 {
+			color: #B0AF9D;
+		}
+		p {
+			color: #B0AF9D;
+		}
+	</style>
+	
+	<main>
+		<p>
+			<a href="../index.html">Go back~!</a>
+		</p>
+		<h1> Luma Keying and Layers with AVISynth+ <br>
+			<sup style="font-size: 50%;">(When there was no guide providing this information.)</sup></h1>
+		<p>
+			When I went to make this AVISynth+ script there was no information.
+			<br>
+			Just a lot of dead ends, and information that was either wrong or incomplete.
+			<br>
+			There was nothing for Luma Keying in AVISynth+.
+			<br>
+			And nothing concrete about how to use layers with it.
+			<br><br>
+			So if you're the person searching for this sort of script well...
+			<br>
+			This is the script on how to do Luma Keying and adding Layers with AVISynth+.
+			<br><br><br><br><b>
+			<c style="color:#DCABAB;">base_video</c> = <c style="color:#DCDCAA;">DirectShowSource</c>(<c style="color:#CE9178;">"base_video.webm"</c>).<c style="color:#DCDCAA;">ConvertTORGB32()</c>
+			<br>
+			<c style="color:#ABABDC;">luma_key</c> = <c style="color:#DCDCAA;">DirectShowSource</c>(<c style="color:#CE9178;">"luma_key.webm"</c>).<c style="color:#DCDCAA;">ConvertTORGB32()</c>
+			<br><br>
+			<c style="color:#ABDCAB;">background</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"background.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, end=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>)
+			<br><br>
+			<c style="color:#ABDCDC;">foreground</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"foreground.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, send=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>, pixel_type=<c style="color:#CE9178;">"RGB32"</c>)
+			<br><br>
+			<c style="color:#DCABDC;">maskclip</c> = <c style="color:#DCDCAA;">ColorKeyMask</c>((<c style="color:#ABABDC;">luma_key</c>, <c style="color:#B5CEA8;">$000000</c>, <c style="color:#B5CEA8;">0</c>)
+			<br>
+			<c style="color:#DCDCAA;">Overlay</c>(<c style="color:#ABDCAB;">background</c>, <c style="color:#DCABAB;">base_video</c>, mask=<c style="color:#DCABDC;">maskclip</c>, mode=<c style="color:#CE9178;">"blend"</c>, opacity=<c style="color:#B5CEA8;">1</c>))
+			<br><br>
+			<c style="color:#DCDCAA;">Overlay</c>(last, <c style="color:#ABDCDC;">foreground</c>, mask=<c style="color:#ABDCDC;">foreground</c>.<c style="color:#DCDCAA;">ShowAlpha</c>())
+			</b>
+		</p>
+		<br>
+		<video width="1280" height="720" controls autoplay loop>
+			<source src="./vid/lumaexamp.mp4" type="video/mp4">
+		</video>
+		<br>
+		<p>Assets are from <a href="https://store.steampowered.com/app/1989270/";><b>Slay the Princess</b></a> (Steam).
+		<br><br>
+		<h2>Additional notes.</h2>
+		<p>
+			In the example the <c style="color:#CE9178;">webm</c> format was used,
+			<br>
+			which is why it relied on <c style="color:#DCDCAA;">DirectShowSource</c>.
+			<br><br>
+			If your videos are in the <c style="color:#CE9178;">avi</c> format use <c style="color:#DCDCAA;">AVISource</c> for instance.
+			<br><br>
+			Video in <c style="color:#CE9178;">mp4</c> or <c style="color:#CE9178;">mkv</c> formats?
+			<br>
+			Use <c style="color:#DCDCAA;">FFVideoSource</c> or <c style="color:#DCDCAA;">FFmpegSource</c>, etc. etc.
+			<br><br>
+			Anyways, that's it.
+			<br>
+			Enjoy if you actually needed this.
+		</p>
+	<a href="./lumasynth.html">To top~!</a>
+	</main>
+	</body>
+</html>
