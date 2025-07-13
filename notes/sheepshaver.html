@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Setting up and running SheepShaver</title>
+	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
+
+	<style>
+		a:link {
+			color: #BC65CB; /* Unvisited Link */
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white; /* Visited Link */
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #B0AF9D; /* Mouse over */
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: black; /* Selected */
+			background-color: transparent;
+			text-decoration: underline;
+		}
+
+		h1, h2, p, sup {
+			color: #B0AF9D;
+		}
+	</style>
+	
+	<main>
+		<p>
+			<a href="../index.html">Go back~!</a>
+		</p>
+		<h1> Setting up and running SheepShaver <br>
+			<sup style="font-size: 50%;">(She wanted Safecracker, but I installed Myst.)</sup></h1>
+		<p>
+			There was probably information on this sort of thing,
+			<br>
+			but for me it's running into the issue head first.
+		</p>
+
+		<br>
+
+		<a href="#part-1-prerequisite">
+			<h2 id="part-1-prerequisite"> Part 1: Prerequisite Files </h2>
+		</a>
+		<p><br>
+			Starting off we actually need the program SheepShaver which is on; 
+			<a href="https://www.emaculation.com/forum/viewtopic.php?t=5325"><b>Windows</b></a>, 
+			<a href="https://github.com/Korkman/macemu-appimage-builder/releases/latest"><b>Linux</b></a> and
+			<a href="https://www.emaculation.com/forum/viewtopic.php?t=7360"><b>Mac OS X</b></a>.
+			<br><br>
+			For the build of Mac OS we're going to be using Mac OS 8.5.
+			<br>
+			OS 9 might also work as well, but I'm just showing what I know.
+			<br><br>
+			For the ROM File we're going to be using a <i>Power Mac 6500</i>.
+			<br>
+			We also want our game in the <i>.toast</i> format, this is the format it wants to have. We're using <i>Myst</i>.
+			<br><br>
+			What you thought I was actually going to provide that stuff? No.
+		</p>
+		
+	<br>
+	
+		<a href="#part-1-sheepshaver">
+			<h2 id="part-1-sheepshaver"> Part 1: Setting up SheepShaver </h2>
+		</a>
+		<p>
+			We're going to be using the GUI setup for this, otherwise I would want to void out.
+			<br><br>
+			<b>Within Volumes</b>
+			<br>
+			<i>Add</i> both the Mac OS 8.5 iso and the game you wish to install (in my case it's Myst.toast).
+			<br>
+			<i>Create</i> and name the Volume File (I have mine set to 256MiB, as Mac OS requires 157MiB).
+			<br><br>
+			<b>Within Graphics / Sound</b>
+			<br>
+			Set the Windows Refresh Rate to 60 Hz and the Width / Height to whatever you want (in this case I'm using 640x480).
+			<br>
+			You can adjust the Render Driver away from Software, but for my sake I'm leaving it on Software.
+			<br><br>
+			<b>Within Memory / Misc</b>
+			<br>
+			Set the MacOS Ram Size (MB) to whatever you want, I'm using 256MB.
+			<br>
+			Point the ROM file, to the-- ROM File that you're going to be using (in our case it's the <i>Power Mac 6500</i> mentioned earlier).
+			<br><br>
+			Select Start
+		</p>
+	
+	<br>
+	
+		<a href="#part-2-installing">
+			<h2 id="part-2-installing"> Part 2: Installing MacOS and Playing Your Title </h2>
+		</a>
+		<p>
+			Follow the initialization process.
+			<br>
+			Afterwards select <i>Mac OS Install</i> from the Mac OS disk and follow its process.
+			<br>
+			After installation select <i>Special</i> and <i>Shut Down</i>.
+			<br>
+			You can now <i>remove</i> the Mac OS 8.5 iso, since we don't need to install a new instance.
+			<br><br>
+			After removing the iso, press start, and now you can follow the <i>installation</i> process there.
+			<br>
+			Congratulations, you can now play your game-- Myst.
+			<br><br>
+			<img src="./img/sheepshavermyst.png" alt="Myst Running in SheepShaver">
+			<br><br>
+			And that's Myst.
+		</p>
+	<a href="./sheepshaver.html">To the top~!</a>
+	</main>
+	</body>
+</html>
