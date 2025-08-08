@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Summarizing Crash Bandicoot any% in a Document and Not Over 123 Videos</title>
+	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
+    <style>
+        body {
+			align-items: center;
+            display: flex;
+            flex-direction: column;
+			justify-content: center;
+        }
+		video {
+			object-fit: fill;
+			width: 640px;
+			height: 480px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		img {
+			object-fit: fill;
+			width: 640px;
+			height: 480px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		h1, h2, p, sup {
+			color: #B0AF9D;
+		}
+		.tabs-container h2,
+        .tabs-container p {
+			color: black;
+		}
+		a:link {
+			color: #BC65CB;
+			text-decoration: none;
+		}
+		a:visited {
+			color: #4D3151;
+			text-decoration: none;
+		}
+		a:hover {
+			color: white;
+			text-decoration: underline;
+		}
+		a:active {
+			color: black;
+			text-decoration: underline;
+		}
+        .tabs-container {
+            width: 60%;
+            margin-bottom: 20px;
+			background-color:#B0AF9D;
+        }
+        .tabs {
+            display: flex;
+			align-items: center;
+			color: black;
+			background-color:#B0AF9D;
+			border: 4px solid #261629;
+        }
+        .tab-button {
+            flex: 100%;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .tab-button.active {
+            background-color: #BC65CB;
+            color: #B0AF9D;
+			font-weight: bold;
+        }
+        .tab-content {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+		table, th, td {
+			color: black;
+			background-color:#B0AF9D;
+			border: 4px solid #261629;
+			border-collapse: collapse;
+			margin-right: auto; 
+			margin-left: auto; 
+		}
+		
+		@media (max-width: 1910px) {
+			.tabs-container {
+					width: 100%;
+				}
+			}
+		@media (max-width: 954px) {
+			.tabs-container {
+					width: 100%;
+					font-size: 75%;
+				}
+			video {
+				height: auto;
+				max-width: 50%;
+				max-height: 50%;
+				}
+			img {
+				height: auto;
+				max-width: 50%;
+				max-height: 50%;
+			}
+		}
+    </style>
+</head>
+<body>
+	<a href="#boss-summaries">
+		<h2 id="boss-summaries">Boss Summaries</h2>
+	</a>
+	<p>Crash Bandicoot has 6 bosses, two of them are just "jump on the boss/thing" but to at least go through them...</p>
+	
+	<br>
+
+<div class="tabs-container">
+    <div class="tabs">
+        <div class="tab-button active" data-tab="min">Minimize</div>
+        <div class="tab-button" data-tab="boss-1">Papu Papu</div>
+        <div class="tab-button" data-tab="boss-2">Ripper Roo</div>
+        <div class="tab-button" data-tab="boss-3">Koala Kong</div>
+        <div class="tab-button" data-tab="boss-4">Pinstripe Potoroo</div>
+        <div class="tab-button" data-tab="boss-5">Dr. Nitrus Brio</div>
+        <div class="tab-button" data-tab="boss-6">Dr. Neo Cortex</div>
+    </div>
+
+    <div id="min" class="active"></div>
+
+    <div id="boss-1" class="tab-content">
+        <h2>Papu Papu</h2>
+        <p>In the Japanese version you have to jump on Papu Papu 5 times, compared to the US release of 3.
+        <br><br>
+        You are able to immediately jump on Papu when he slams his staff down.
+        <br>
+        You need to wait for him to stop flashing to be able to jump on him again,
+        <br>
+        this is just before Papu Papu completes a full revolution.
+        </p>
+    </div>
+
+    <div id="boss-2" class="tab-content">
+        <h2>Ripper Roo</h2>
+        <p>
+        Ripper Roo has 3 health bars, and he moves in three separate patterns.
+        <br>
+        You start with two masks in this fight.
+        <br>
+        <table style="text-align: center;">
+        <tr>
+            <th>Phase 1</th>
+            <th>Phase 2</th>
+            <th>Phase 3</th>
+        </tr>
+        <tr style="font-size: 150%;">
+            <td>
+                ⬜⬜⬜<br>
+                ⬛⬛⬛<br>
+                ⬜⬛⬜
+            </td>
+            <td>
+                ⬜⬛⬜<br>
+                ⬛⬜⬛<br>
+                ⬜⬛⬜
+            </td>
+            <td>
+                ⬜⬜⬜<br>
+                ⬜⬛⬜<br>
+                ⬛⬜⬛
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            (dark squares is Ripper Roo's movement)
+            </td>
+        </tr>
+        </table>
+        <br>
+        To start this fight let the first Big TNT blow up naturally.
+        <br>
+        <br>
+        When Ripper Roo's invisibility ends, spin the TNT sitting next to him.
+        <br>
+        Repeat on the final hit as well to get out early.
+        <br><br>
+        If you're unable to do that, just know that it takes three platforms of movement before he can be damaged by the Big TNT you jumped on. So plan your attacks ahead.
+        </p>
+    </div>
+
+    <div id="boss-3" class="tab-content">
+        <h2>Koala Kong</h2>
+        <p>
+        Koala Kong takes 4 hits of damage.
+        <br><br>
+        You need to spin the three rocks that he throws at you,
+        <br>
+        whilst avoiding the TNT that's falling above you.
+        <br><br>
+        After the third rock is thrown he will carry to the center a larger rock.
+        <br>
+        This is the one you can spin back with,
+        <br>
+        but try to avoid hitting the minecarts when sending a rock back at Koala Kong.
+        <br><br>
+        On the first two the TNT will land only on the Left Side.
+        <br><br>
+        At the third and fourth phases there will be two that will fall,
+        <br>
+        one on the left then the center just before the TNT blows up where your safety is on the right,
+        <br>
+        a final one will fall from the center after the previous two explode.
+        <br><br>
+        This is where it's recommended to use the TNT Jumping to clear any spacing if you do have difficulty with this boss.
+        </p>
+    </div>
+
+    <div id="boss-4" class="tab-content">
+        <h2>Pinstripe Potoroo</h2>
+        <p>
+        A relatively simple boss to deal with that has 6 health bars.
+        <br><br>
+        Wait for Pinstripe to complete his first round of firing then immediately go on the offensive,
+        <br>
+        you'll be able to attack him three times.
+        <br>
+        Go behind cover behind the chair and wait for his gun to jam to attack him again.
+        <br><br>
+        Pinstripe's movement is going from one side to the other then his gun will jam,
+        <br>
+        so just be covered on the opposite side to where he starts shooting.
+        <br>
+        On his last health he'll jam when he is in the center (one movement), so be ready to go at him.
+        <br><br>
+        What more experienced runners do is allow him to be on the right side first before dealing 3 damage on him,
+        <br>
+        as the fourth bit of damage will be immediate when he crosses back to the left side,
+        <br>
+        reducing the time spent dealing with the boss.
+        </p>
+    </div>
+
+    <div id="boss-5" class="tab-content">
+        <h2>Dr. Nitrus Brio</h2>
+        <p>
+        N. Brio has 9 health.
+        <br><br>
+        The first half of his fight is avoiding the red beakers that he throws at you<br>
+        and Jump Spin on the green blobs that manifest from the green beakers.
+        <br><br>
+        When N. Brio is down to 3 health, he will throw six red beakers and turn into the Hulk.
+        <br>
+        When he's charging at you jump on the rubble that fell from above, then jump on Brio.
+        </p>
+    </div>
+
+    <div id="boss-6" class="tab-content">
+        <h2>Dr. Neo Cortex</h2>
+        <p>
+        Cortex has 5 health, and is the final boss of the game.
+        <br><br>
+        You are looking for a green energy that you will be able to return to sender.
+        <br>
+        He also shoots out Pink ones at you and Blue ones that enter in from the side.
+        <br><br>
+        With the blue ones these are telegraphed where their height will be starting from and which height they'll be.
+        <br>
+        Mid-way through the third phase they will move diagonally, meaning it'll start off at the opposite of the starting height.
+        <br><br>
+        This is a real simple boss to learn and do, and I am kind of overcomplicating it a bit,
+        <br>
+        but this is just in case you haven't really played or remembered much about Crash Bandicoot.
+        <br><br>
+        And to help about it.
+        <br>
+        Even though this information isn't really necessary this is what he shoots in order of phases:
+        <br><br>
+        <b>Phase 1:</b> Two Pinks, One Green.<br>
+        <b>Phase 2:</b> Pink, Blue (bot), Pink, Blue (bot), Blue (bot), 2 Greens.<br>
+        <b>Phase 3:</b> Pink, Blue (bot), Blue (top), Pink, Green, Pink, Blue (bot), Blue (bot), Blue (top), 2 Greens.<br>
+        <b>Phase 4:</b> 5 Pink (rapid), Green, 5 Pink (rapid), Green.<br>
+        <b>Phase 5:</b> Green.
+        </p>
+    </div>
+</div>
+
+<p>
+	<b>And that’s time.</b>
+	<br><br>
+	If you want to be goofy and if you learn the timing,
+	<br>
+	you can jump off after Cortex and be rewarded with the credits or if you time it badly you have to fight Cortex again...
+	<br>
+	So don’t do what I did when I ran this game decades ago.
+	<br><br>
+	We’re now just going to be entering some Intermediate stuff that’s good to learn early.
+	<br><br>
+	If you want to learn more advanced techniques come join the Crash Bandicoot Speedrunning Server on Discord.
+</p>
+
+<br>
+
+	<a href="#wall-clipping">
+		<h2 id="wall-clipping">Wall Clipping</h2>
+	</a>
+	<p>
+		This is an essential trick that exists in the Lost City and Sunset Vista.
+		<br><br>
+		Both are the same trick, but are executed at different points.
+		<br><br>
+		This trick saves a lot of time as you avoid all obstacles at the cost of falling in the water and going back to the checkpoint.
+	</p>
+	
+	<br>
+
+	<a href="#death-abuse">
+		<h2 id="death-abuse">Death Abusing</h2>
+	</a>
+	<p>
+		So you're taking the head first approach to Crash Bandicoot any% and choosing to run the NTSC-U version.
+		<br><br>
+		Almost every level has a death abuse point so it's extremely important to keep your lives above zero at all times.<br>
+		This is to prepare for a Game Over abuse midway through the run.
+		<br><br>
+		You do not death abuse in <b>Hog Wild</b> where you want to miss at least one box and <b>The Lost City</b> where you have to get the Green Gem
+	</p>
+	
+	<br>
+
+<div class="tabs-container">
+    <div class="tabs">
+        <div class="tab-button active" data-tab="min">Minimize</div>
+        <div class="tab-button" data-tab="lvl-1">N. Sanity Beach</div>
+        <div class="tab-button" data-tab="lvl-2">Jungle Rollers</div>
+        <div class="tab-button" data-tab="lvl-3">The Great Gate</div>
+        <div class="tab-button" data-tab="lvl-4">Boulders</div>
+        <div class="tab-button" data-tab="lvl-5">Upstream</div>
+        <div class="tab-button" data-tab="lvl-6">Rolling Stones</div>
+        <div class="tab-button" data-tab="lvl-7">Native Fortress</div>
+    </div>
+    <div id="min" class="active"></div>
+    
+    <div id="lvl-1" class="tab-content">
+        <h2>N. Sanity Beach</h2>
+        <p>After the checkpoint towards the jungle area, jump into the pit.<br>
+        When respawning the faster path is the trickier right side,<br>
+		but everyone wants a safe platform below them so they take the left. :)
+        </p>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/crash1/ns-double.mp4" type="video/mp4">
+		</video>
+		<p>Note: If you're taking the invisibility mask approach as you're learning.<br>
+		Go right where <b>!</b> box bridge is instead of death abusing.</p>
+    </div>
+    
+    <div id="lvl-2" class="tab-content">
+        <h2>Jungle Rollers</h2>
+        <p>Towards the 4x3 stack of boxes (green gem's location) backtrack into the pit behind you.
+		</p>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/crash1/jr-double.mp4" type="video/mp4">
+		</video>
+		<p>Note: If you're carrying invisibility from N. Sanity Beach you'll exit at minimum 3 boxes,<br>
+		these boxes are located in the Green Gem Path.</p>
+    </div>
+    
+    <div id="lvl-3" class="tab-content">
+        <h2>The Great Gate</h2>
+        <p>After reaching the checkpoint, fall into the pit in front of you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-4" class="tab-content">
+        <h2>Boulders</h2>
+        <p>After reaching the first checkpoint, fall into the pit in front of you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-5" class="tab-content">
+        <h2>Upstream</h2>
+        <p>Once you reach the top of the waterfall where the first checkpoint is located, fall down the waterfall.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-6" class="tab-content">
+        <h2>Rolling Stones</h2>
+        <p>After reaching the first checkpoint, fall into the pit in front of you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-7" class="tab-content">
+        <h2>Native Fortress</h2>
+        <p>After reaching the second checkpoint, fall into the pit.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs">
+        <div class="tab-button active" data-tab="min">Minimize</div>
+        <div class="tab-button" data-tab="lvl-8">Up the Creek</div>
+        <div class="tab-button" data-tab="lvl-9">Temple Ruins</div>
+        <div class="tab-button" data-tab="lvl-10">Road to Nowhere</div>
+        <div class="tab-button" data-tab="lvl-11">Boulder Dash</div>
+        <div class="tab-button" data-tab="lvl-12">Sunset Vista</div>
+        <div class="tab-button" data-tab="lvl-13">Heavy Machinery</div>
+        <div class="tab-button" data-tab="lvl-14">Cortex Power</div>
+    </div>
+    <div id="min" class="active"></div>
+    
+    <div id="lvl-8" class="tab-content">
+        <h2>Up the Creek</h2>
+        <p>Once you reach the first checkpoint, fall into the water.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-9" class="tab-content">
+        <h2>Temple Ruins</h2>
+        <p>After reaching the first checkpoint, fall towards the camera.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-10" class="tab-content">
+        <h2>Road to Nowhere</h2>
+        <p>Jump to the side after reaching the first checkpoint.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-11" class="tab-content">
+        <h2>Boulder Dash</h2>
+        <p>After reaching the first checkpoint, fall into the pit in front of you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-12" class="tab-content">
+        <h2>Sunset Vista (Game Over)</h2>
+        <p>This is the instance of a Game Over abuse.
+		<br>
+		Collect all three Tawna tokens within the level and complete the bonus round.
+		<br>
+		Game Over and Continue. You will now be at Koala Kong.</p>
+    </div>
+    
+    <div id="lvl-13" class="tab-content">
+        <h2>Heavy Machinery</h2>
+        <p>After reaching the first checkpoint, fall towards the camera.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-14" class="tab-content">
+        <h2>Cortex Power</h2>
+        <p>After reaching the second checkpoint, die in the toxic goop.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+</div>
+
+<div class="tabs-container">
+    <div class="tabs">
+        <div class="tab-button active" data-tab="min">Minimize</div>
+        <div class="tab-button" data-tab="lvl-15">Generator Room</div>
+        <div class="tab-button" data-tab="lvl-16">Toxic Waste</div>
+        <div class="tab-button" data-tab="lvl-17">The High Road</div>
+        <div class="tab-button" data-tab="lvl-18">Slippery Climb</div>
+        <div class="tab-button" data-tab="lvl-19">Lights Out</div>
+        <div class="tab-button" data-tab="lvl-20">Jaws of Darkness</div>
+        <div class="tab-button" data-tab="lvl-21">The Lab</div>
+    </div>
+    <div id="min" class="active"></div>
+    
+    <div id="lvl-15" class="tab-content">
+        <h2>Generator Room</h2>
+        <p>When approaching the first checkpoint you want to be jumping on the box to electrocute Crash.
+		<br>
+		This is faster than falling.
+		</p>
+    </div>
+    
+    <div id="lvl-16" class="tab-content">
+        <h2>Toxic Waste</h2>
+        <p>After reaching the first checkpoint fall into the toxic goop.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-17" class="tab-content">
+        <h2>The High Road</h2>
+        <p>After reaching the third checkpoint, fall into the pit behind you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-18" class="tab-content">
+        <h2>Slippery Climb</h2>
+        <p>After reaching the first checkpoint, die to the spikes in front of you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-19" class="tab-content">
+        <h2>Lights Out</h2>
+        <p>After reaching the first checkpoint, fall off to the side.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-20" class="tab-content">
+        <h2>Jaws of Darkness</h2>
+        <p>At the second checkpoint, fall into the pit below.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+    
+    <div id="lvl-21" class="tab-content">
+        <h2>The Lab</h2>
+        <p>After reaching the first checkpoint, fall down into the pit beside you.</p>
+		<img src="./img/crash1/temp.jpg" alt="Placeholder">
+    </div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const tabsContainers = document.querySelectorAll('.tabs-container');
+
+		tabsContainers.forEach(container => {
+			container.addEventListener('click', (event) => {
+				const button = event.target.closest('.tab-button');
+				if (!button) return;
+
+				const targetId = button.getAttribute('data-tab');
+
+				const currentlyActiveContent = container.querySelector('.tab-content.active');
+				if (currentlyActiveContent) {
+					const video = currentlyActiveContent.querySelector('video');
+					if (video) {
+						video.pause();
+					}
+				}
+
+				container.querySelectorAll('.tab-button.active').forEach(btn => btn.classList.remove('active'));
+				container.querySelectorAll('.tab-content.active').forEach(content => content.classList.remove('active'));
+
+				button.classList.add('active');
+				container.querySelector(`#${targetId}`).classList.add('active');
+			});
+		});
+	});
+</script>
+		<p>
+			And that's Bandicoot Power~!.
+		</p>
+	<a href="./crash1any.html">To the top~!</a>
+	</main>
+	</body>
+</html>
