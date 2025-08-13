@@ -134,6 +134,13 @@
 	Intro text and other things missing. Been working backwards through this.
 	<br>
 	This area is also temporarily a secret.
+	<br><br>
+	Pending Changes from the request of Tebt (that's not mentioned in the google doc version):<br>
+	- Jungle Rollers: Pending information from Tebt about what that's about.<br>
+	- Native Fortress: Move the image to the last checkpoint for Death Abuse.<br>
+	- Add a section below "Wall Clipping" to have "Standing on Fire".<br>
+	- The suffering that is Sunset Vista.<br>
+	- Work on a future section called "The More Advanced Necessities of Crash Bandicoot any%" which focuses on level specifics.
 	</p>
 	
 	<a href="#spinning-spikes">
@@ -200,7 +207,13 @@
 	<a href="#boss-summaries">
 		<h2 id="boss-summaries">Boss Summaries</h2>
 	</a>
-	<p>Crash Bandicoot has 6 bosses, two of them are just "jump on the boss/thing" but to at least go through them...</p>
+	<p>
+	Crash Bandicoot has 6 bosses, And a warning to boot.
+	<br>
+	It's possible to softlock yourself when the boss dies and you take Aku damage, be careful.
+	<br>
+	Two of them are just "jump on the boss/thing" but to at least go through them...
+	</p>
 	
 	<br>
 
@@ -283,14 +296,16 @@
         Koala Kong takes 4 hits of damage.
         <br><br>
         You need to spin the three rocks that he throws at you,
-        <br>
-        whilst avoiding the TNT that's falling above you.
+		<br>
+		whilst avoiding the TNT that's falling above you,
+		<br>
+		but don't spin too early, else the boulder will phase through Koala Kong.
         <br><br>
         After the third rock is thrown he will carry to the center a larger rock.
-        <br>
-        This is the one you can spin back with,
-        <br>
-        but try to avoid hitting the minecarts when sending a rock back at Koala Kong.
+		<br>
+		This is the one you can spin back with, but it takes some time and is random when he chooses,
+		<br>
+		but try to avoid hitting the minecarts when sending a rock back at Koala Kong.
         <br><br>
         On the first two the TNT will land only on the Left Side.
         <br><br>
@@ -371,6 +386,13 @@
 		  <b>Phase 4:</b> 5 Pink (rapid), Green, 5 Pink (rapid), Green.<br>
 		  <b>Phase 5:</b> Green.
 		</div>
+		<p>
+		What more experienced runners do is to stand at the front of the blimp.
+		<br>
+		This helps avoid the blue energy balls, and be able to deal damage back.
+		<br><br>
+		The risk to this is the accidental moment of falling off the blimp on accident.
+		</p>
     </div>
 </div>
 
@@ -469,7 +491,10 @@
     
     <div id="lvl-5" class="tab-content">
         <h2>Upstream</h2>
-        <p>Once you reach the top of the waterfall where the first checkpoint is located, fall down the waterfall.</p>
+        <p>Once you reach the top of the waterfall where the first checkpoint is located, fall down the waterfall.
+		<br><br>
+		This is faster than falling into the water.
+		</p>
 		<video width="640" height="480" controls loop>
 		<source src="./vid/crash1/u-double.mp4" type="video/mp4">
 		</video>
@@ -570,7 +595,7 @@
     <div id="lvl-15" class="tab-content">
         <h2>Generator Room</h2>
         <p>When approaching the first checkpoint you want to be jumping on the box to electrocute Crash.
-		<br>
+		<br><br>
 		This is faster than falling.
 		</p>
 		<video width="640" height="480" controls loop>
@@ -614,34 +639,34 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => !entry.isIntersecting && entry.target.pause());
-        }, { threshold: 0.5 });
-        
-        document.addEventListener('click', event => {
-            const button = event.target.closest('.tab-button');
-            if (!button) return;
-            
-            const container = button.closest('.tabs-container');
-            const activeContent = container.querySelector('.tab-content.active');
-            activeContent?.querySelector('video')?.pause();
-
-            container.querySelectorAll('.tab-button.active, .tab-content.active').forEach(el => el.classList.remove('active'));
-
-            button.classList.add('active');
-            container.querySelector(`#${button.dataset.tab}`).classList.add('active');
-        });
-
-        document.querySelectorAll('video').forEach(video => observer.observe(video));
-    });
-</script>
-
 		<p>
 			And that's Bandicoot Power~!.
 		</p>
 	<a href="./crash1any.html">To the top~!</a>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => !entry.isIntersecting && entry.target.pause());
+			}, { threshold: 0.5 });
+			
+			document.addEventListener('click', event => {
+				const button = event.target.closest('.tab-button');
+				if (!button) return;
+				
+				const container = button.closest('.tabs-container');
+				const activeContent = container.querySelector('.tab-content.active');
+				activeContent?.querySelector('video')?.pause();
+
+				container.querySelectorAll('.tab-button.active, .tab-content.active').forEach(el => el.classList.remove('active'));
+
+				button.classList.add('active');
+				container.querySelector(`#${button.dataset.tab}`).classList.add('active');
+			});
+
+			document.querySelectorAll('video').forEach(video => observer.observe(video));
+		});
+	</script>
 	</main>
 	</body>
 </html>
