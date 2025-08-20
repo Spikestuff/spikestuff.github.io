@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spyro Original Trilogy Recent PBs Ticker</title>
+    <style>
+        body {
+            font-family: monospace;
+            color: #B0AF9D;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-size: 24px;
+        }
+
+        .ticker-container {
+            width: 1920px;
+            height: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-group {
+            animation: marquee-scroll linear infinite;
+        }
+        
+        .ticker-group,
+        .category-container,
+        .game-title,
+        .game-separator,
+        .run-separator {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .category-container {
+            text-align: center;
+        }
+		
+        .game-title,
+        .game-separator,
+        .run-separator,
+        .visualbreakup {
+            font-weight: bold;
+        }
+		
+        .category-container,
+        .game-title,
+        .game-separator,
+        .run-separator {
+            padding: 0 10px;
+        }
+        
+        .game-title,
+        .game-separator {
+            color: #BC65CB;
+        }
+
+        .visualbreakup {
+            color: #4D3151;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticker-container" id="ticker-container">
+        <div class="ticker-group"></div>
+        <div class="ticker-group"></div>
+    </div>
+
+    <script>
+        const games = [
+            {
+                title: 'Spyro the Dragon',
+                gameid: '576rje18',
+                categories: [
+                    { id: 'lvdo8ykp', name: 'any%' },
+                    { id: '7wkp1gkr', name: '120%' },
+                    { id: '9kvxrv82', name: 'vortex' }
+                ]
+            },
+            {
+                title: "Spyro 2: Ripto's Rage",
+                gameid: '9j1l9v1g',
+                categories: [
+                    { id: '37dgn724', name: 'any%' },
+                    { id: '7wk6nq21', name: '100%' },
+                    { id: 'w5dw4ekg', name: '40 Orb' },
+                    { id: 'pmke98d6', name: '14 Tali' }
+                ]
+            },
+            {
+                title: 'Spyro: Year of the Dragon',
+                gameid: '4pd02v1e',
+                categories: [
+                    { id: 'xn2yozdo', name: 'any%' },
+                    { id: '4xk9r4k0', name: '117%' },
+                    { id: 'p7kj3n23', name: '100 Egg' }
+                ]
+            }
+        ];
+    
+        const tickerGroups = document.querySelectorAll('.ticker-group');
+    
+        async function fetchRunData(game, category) {
+            try {
+                const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${game.gameid}&category=${category.id}&orderby=submitted&direction=desc&max=1&embed=players,category`);
+                const data = await response.json();
+                const runData = data.data;
+
+                if (runData && runData.length) {
+                    const run = runData[0];
+                    const playerName = run.players.data[0].names.international;
+                    const categoryName = run.category.data.name.toLowerCase();
+                    const runTime = run.times.primary_t;
+                    
+                    const hours = Math.floor(runTime / 3600);
+                    const minutes = String(Math.floor((runTime % 3600) / 60)).padStart(2, '0');
+                    const seconds = String(Math.round(runTime % 60)).padStart(2, '0');
+                    
+                    let formattedTime;
+                    if (hours > 0) {
+                        formattedTime = `${hours}:${minutes}:${seconds}`;
+                    } else {
+                        formattedTime = `${minutes}:${seconds}`;
+                    }
+    
+                    return `<div class="category-container"><p>Congrats <b>${playerName}</b> for your <b>${formattedTime}</b> PB in <b>${categoryName}</b>!</p></div>`;
+                } else {
+                    return `<div class="category-container"><p>No recent data available.</p></div>`;
+                }
+            } catch (error) {
+                return ``;
+            }
+        }
+    
+        async function fetchAndUpdateTicker() {
+            try {
+                const promises = [];
+                for (const game of games) {
+                    for (const category of game.categories) {
+                        promises.push(fetchRunData(game, category));
+                    }
+                }
+    
+                const results = await Promise.all(promises);
+                let resultIndex = 0;
+                let tickerHTML = '';
+                
+                tickerHTML += `<span class="game-separator">||</span>`;
+
+                for (const game of games) {
+                    tickerHTML += `<span class="game-title">${game.title} —</span>`;
+    
+                    for (let i = 0; i < game.categories.length; i++) {
+                        tickerHTML += results[resultIndex];
+                        resultIndex++;
+                        if (i !== game.categories.length - 1) {
+                            tickerHTML += `<span class="run-separator">|</span>`;
+                        }
+                    }
+                    tickerHTML += `<span class="game-separator">||</span>`;
+                }
+                
+                tickerHTML += `<span class="visualbreakup">°º¤ø,¸¸,ø¤º°\`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°\`°º¤ø,¸</span>`;
+                
+                tickerGroups.forEach(group => group.innerHTML = tickerHTML);
+
+                setTimeout(() => {
+                    const contentWidth = tickerGroups[0].offsetWidth;
+                    const pixelsPerSecond = 120;
+                    const duration = contentWidth / pixelsPerSecond;
+                    
+                    const styleSheet = document.styleSheets[0];
+                    const keyframesRule = `@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-${contentWidth}px); } }`;
+                    
+                    for(let i = 0; i < styleSheet.cssRules.length; i++) {
+                        if (styleSheet.cssRules[i].name === 'marquee-scroll') {
+                            styleSheet.deleteRule(i);
+                        }
+                    }
+                    
+                    styleSheet.insertRule(keyframesRule, styleSheet.cssRules.length);
+
+                    tickerGroups.forEach(group => group.style.animation = `marquee-scroll ${duration}s linear infinite`);
+                }, 100);
+            } catch (error) {
+                
+            }
+        }
+    
+        fetchAndUpdateTicker();
+        setInterval(fetchAndUpdateTicker, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
