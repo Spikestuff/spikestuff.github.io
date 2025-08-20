@@ -4,151 +4,295 @@
 	<title>Summarizing Crash Bandicoot any% in a Document and Not Over 123 Videos</title>
 	<link rel="shortcut icon" href="./img/ico/crash.gif"/>
 	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
-    <style>
-        body {
-			align-items: center;
-            display: flex;
-            flex-direction: column;
-			justify-content: center;
-        }
-		video {
-			object-fit: fill;
-			width: 640px;
-			height: 480px;
-			max-width: 100%;
-			max-height: 100%;
-		}
-		img {
-			object-fit: fill;
-			width: 640px;
-			height: 480px;
-			max-width: 100%;
-			max-height: 100%;
-		}
-		h1, h2, p, sup {
-			color: #B0AF9D;
-		}
-		.tabs-container h2,
-        .tabs-container p {
-			color: black;
-		}
-		a:link {
-			color: #BC65CB;
-			text-decoration: none;
-		}
-		a:visited {
-			color: #4D3151;
-			text-decoration: none;
-		}
-		a:hover {
-			color: white;
-			text-decoration: underline;
-		}
-		a:active {
-			color: black;
-			text-decoration: underline;
-		}
+<style>
+<style>
+<style>
+    body {
+        margin: 0;
+    }
+    
+    video {
+        object-fit: fill;
+        width: 640px;
+        height: 480px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    img {
+        object-fit: fill;
+        width: 640px;
+        height: 480px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    h1, h2, p, sup {
+        color: #B0AF9D;
+    }
+    
+    .tabs-container h2,
+    .tabs-container p {
+        color: black;
+    }
+    
+    a:link {
+        color: #BC65CB;
+        text-decoration: none;
+    }
+    
+    a:visited {
+        color: #4D3151;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+    
+    a:active {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .tabs-container {
+        width: 60%;
+        margin-bottom: 20px;
+        background-color: #B0AF9D;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .tabs {
+        display: flex;
+        align-items: center;
+        color: black;
+        background-color: #B0AF9D;
+        border: 4px solid #261629;
+    }
+    
+    .tab-button {
+        flex: 100%;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .tab-button.active {
+        background-color: #BC65CB;
+        color: #B0AF9D;
+        font-weight: bold;
+    }
+    
+    .tab-content {
+        text-align: center;
+        padding: 20px;
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .cphase-info {
+        text-align: left;
+    }
+    
+    table, th, td {
+        color: black;
+        background-color: #B0AF9D;
+        border: 4px solid #261629;
+        border-collapse: collapse;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+	#TNT-jumping {
+		margin-bottom: -70px;
+	}
+
+	.tntjump-vidtext {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.tntjump-text {
+		flex: 100% 136px;
+		padding-right: 10px;
+	}
+
+	.tntjump-video {
+		width: 136px;
+		height: 324px;
+		max-width: 100%;
+		max-height: 100%;
+		float: right;
+		margin-left: 10px;
+	}
+    
+    @media (max-width: 1920px) {
         .tabs-container {
-            width: 60%;
-            margin-bottom: 20px;
-			background-color:#B0AF9D;
+            width: 100%;
         }
-        .tabs {
-            display: flex;
-			align-items: center;
-			color: black;
-			background-color:#B0AF9D;
-			border: 4px solid #261629;
+    }
+    
+    @media (max-width: 954px) {
+        .tabs-container {
+            width: 100%;
+            font-size: 75%;
         }
-        .tab-button {
-            flex: 100%;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
+        
+        video {
+            height: auto;
+            max-width: 50%;
+            max-height: 50%;
         }
-        .tab-button.active {
-            background-color: #BC65CB;
-            color: #B0AF9D;
-			font-weight: bold;
+        
+        img {
+            height: auto;
+            max-width: 50%;
+            max-height: 50%;
         }
-        .tab-content {
-            text-align: center;
-            padding: 20px;
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-		 .cphase-info {
-			text-align: left;
-		}
-		table, th, td {
-			color: black;
-			background-color:#B0AF9D;
-			border: 4px solid #261629;
-			border-collapse: collapse;
-			margin-right: auto; 
-			margin-left: auto; 
-		}
-		
-		.tntjump-vidtext {
-		  overflow: fit;
-		}
-		.tntjump-text {
-		  float: left;
-		}
-		.tntjump-video {
-			width: 136px;
-			height: 324px;
-			max-width: 100%;
-			max-height: 100%;
-			float: right;
-			margin-left: 20px;
-		}
-		
-		@media (max-width: 1920px) {
-			.tabs-container {
-					width: 100%;
-				}
-			}
-		@media (max-width: 954px) {
-			.tabs-container {
-					width: 100%;
-					font-size: 75%;
-				}
-			video {
-				height: auto;
-				max-width: 50%;
-				max-height: 50%;
-				}
-			img {
-				height: auto;
-				max-width: 50%;
-				max-height: 50%;
-			}
-		}
-    </style>
+    }
+
+    .container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 100vh;
+    }
+    
+    #left-menu {
+        color: white;
+        background-color: #120A13;
+		border: 1px solid white;
+        position: sticky;
+        top: 10px;
+        width: 250px;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+</style>
 </head>
 <body>
+    <div class="container">
+        <div id="left-menu">
+            <h3>Table of Contents</h3>
+            <ul id="toc-list">
+            </ul>
+        </div>
+        
+    <div class="main-content">
+		<p>
+		This area is also temporarily a secret.
+		<br><br>
+		Pending Changes from the request of Tebt (the entire doc is here now):<br>
+		- Jungle Rollers: Pending information from Tebt about what that's about.<br>
+		- Native Fortress: Learn and produce video for the OOB movement, since I replaced to the recommended final checkpoint.<br>
+		- Add a section below "Wall Clipping" to have "Standing on Fire".<br>
+		- The suffering that is Sunset Vista.<br>
+		</p>            
 	<p>
-	Intro text and other things missing. Been working backwards through this.
+		<a href="../index.html">Go back~!</a>
+	</p>
+	
+	<h1> Summarizing Crash Bandicoot any% in a Document and Not Over 123 Videos <br>
+		<sup style="font-size: 50%;">(This is made for the beginner entry, but also some important tricks for any%)</sup></h1>
+	<p>
+	The Crash speedrunning community doesn't really have a thing that organizes any of this information,
 	<br>
-	This area is also temporarily a secret.
+	or consolidates it properly especially for the any% community,
+	<br>
+	and well I apparently have plenty of time to at least show the necessaries in what goes on for a speedrun,
+	<br>
+	and that I also have too much time on my hands.
 	<br><br>
-	Pending Changes from the request of Tebt (that's not mentioned in the google doc version):<br>
-	- Jungle Rollers: Pending information from Tebt about what that's about.<br>
-	- Native Fortress: Move the image to the last checkpoint for Death Abuse.<br>
-	- Mention the damage abusing on Pinstripe.<br>
-	- Add a section below "Wall Clipping" to have "Standing on Fire".<br>
-	- The suffering that is Sunset Vista.<br>
-	- Work on a future section called "The More Advanced Necessities of Crash Bandicoot any%" which focuses on level specifics.
+	Before we dive into it.
+	<br>
+	I'd like to thank <a href="https://www.speedrun.com/users/Tebt_W">Tebt_W</a> (<a href="https://bsky.app/profile/tebt.bsky.social">bluesky</a>) for providing, and correcting me on information that is being presented here.
+	<br><br>
+	And eventually in the near future there will be a section called
+	<br>
+	"The More Advanced Necessities of Crash Bandicoot any%" which focuses on level specifics.
+	</p>
+	
+	<a href="#version-choice">
+		<h2 id="version-choice">Version Choice</h2>
+	</a>
+	<p>
+	With Crash Bandicoot there's two versions that you can choose from, and that's NTSC-J and NTSC-U.
+	<br><br>
+	For newcomers it's more recommended to start out with Japanese release,
+	<br>
+	mainly for the location of where the Green Gem is moved to being Hog Wild and that High Road was cut down in length.
+	<br><br>
+	Then after getting comfortable with the game should you slowly start progressing into learning the US release.
+	<br>
+	Alternatively you just jump head first into the US release,
+	<br>
+	because you want to tackle The Lost City's Green Gem head on,
+	<br>
+	and you want to learn all the Death Abusing locations to remove the "Great, but you missed" checks.
+	<br><br>
+	There are arguments to be made on which version to start off with and the tonality of it.
+	<br>
+	But regardless. Both versions are being showcased here in full to this document's ability.
+	</p>
+	
+	<a href="#memory-cards">
+		<h2 id="memory-cards">Memory Cards</h2>
+	</a>
+	<p>
+	In Crash Bandicoot it's recommended to not run with a Memory Card inserted.
+	<br><br>
+	If you're running on a PSP/Vita Virtual Console you won't be able to disable the Memory Card.
+	<br>
+	Instead you must immediately spam Triangle after pressing X/O after advancing from retrieving the Green Gem at the Perfect Screen.
+	<br>
+	(you still didn't validate this you goober)
+	</p>
+	
+	<a href="#main-movement">
+		<h2 id="main-movement">Main Movement</h2>
+	</a>
+	<p>
+	The fastest movements in Crash Bandicoot are Jump Spinning and Jump Zig Zagging.
+	<br>
+	You need to use all your spinning reserves where possible,
+	<br>
+	but avoid Zig Zag when you have to enter diagonal areas (most commonly found in Cortex Power).
+	<br><br>
+	There are other movements you need to be aware of,
+	<br>
+	but for the beginner entry for what we need to learn we won't really worry about it too much.
+	</p>
+	
+	<a href="#castle-machinery">
+		<h2 id="castle-machinery">Early Exit Castle Machinery</h2>
+	</a>
+	<p>
+	In Castle Machinery there's a neat trick that you can do after taking the Green Gem.
+	<br>
+	Whilst in the path, you're able to exit the level early by jumping down into the level exit pad.
+	<br>
+	This allows you to avoid needing to travel down with the second Green Gem.
+	<br>
+	[insert video here]
 	</p>
 	
 	<a href="#spinning-spikes">
 		<h2 id="spinning-spikes">Spinning on Spikes Negates Damage</h2>
 	</a>
 
-	<p>In my opinion this is a critical thing to learn early if you’re not being careful.
+	<p>In my opinion this is a critical thing to learn early if you're not being careful.
 	<br>
 	Crash is able to avoid taking damage on a lot of spiked objects by simply spinning on it.
 	</p>
@@ -158,7 +302,7 @@
 	</video>
 	<br>
 	<p>
-	This extends to <i>Papu Papu</i>’s staff and the wall spiked traps in <i>Temple Ruins</i> and <i>Jaws of Darkness</i>.
+	This extends to <i>Papu Papu</i>'s staff and the wall spiked traps in <i>Temple Ruins</i> and <i>Jaws of Darkness</i>.
 	<br>
 	It's a fairly easy trick to pick up, learn and incorporate into your runs.
 	</p>
@@ -170,11 +314,11 @@
 	</a>
 	<div class="tntjump-vidtext">
 		<div class="tntjump-text">
-			<p>To me this is a beginner’s trick that’s important to learn early,
+			<p>To me this is a beginner's trick that's important to learn early,
 			<br>
 			especially if you have issues with Koala Kong and how he strangles you for the little space.
 			<br><br>
-			All that’s required for the basic version is to be standing on the TNT
+			All that's required for the basic version is to be standing on the TNT
 			<br>
 			and then Spin Jumping off of it in a direction, not Jump Spinning.
 			</p>
@@ -338,12 +482,18 @@
         <br>
         On his last health he'll jam when he is in the center (one movement), so be ready to go at him.
         <br><br>
-        What more experienced runners do is allow him to be on the right side first before dealing 3 damage on him,
-        <br>
-        as the fourth bit of damage will be immediate when he crosses back to the left side,
-        <br>
-        reducing the time spent dealing with the boss.
-        </p>
+		There's two things that more experienced runners do in Pinstripe.
+		<br><br>
+		Firstly, runners will allow him to cross to the right side before dealing the first 3 bits of damage on him,
+		<br>
+		as the fourth bit of damage will be immediate when he crosses back to the left side.
+		<br>
+		This reduces the time spent dealing with the boss.
+		<br><br>
+		Secondly, runners take damage abuse to Pinstripe's bullets at his final two phases.
+		<br>
+		This allows you to be able to attack Pinstripe sooner, at the cost of a mask.
+		</p>
     </div>
 
     <div id="boss-5" class="tab-content">
@@ -399,15 +549,15 @@
 </div>
 
 <p>
-	<b>And that’s time.</b>
+	<b>And that's time.</b>
 	<br><br>
 	If you want to be goofy and if you learn the timing,
 	<br>
 	you can jump off after Cortex and be rewarded with the credits or if you time it badly you have to fight Cortex again...
 	<br>
-	So don’t do what I did when I ran this game decades ago.
+	So don't do what I did when I ran this game decades ago.
 	<br><br>
-	We’re now just going to be entering some Intermediate stuff that’s good to learn early.
+	We're now just going to be entering some Intermediate stuff that's good to learn early.
 	<br><br>
 	If you want to learn more advanced techniques come join the Crash Bandicoot Speedrunning Server on Discord.
 </p>
@@ -510,7 +660,7 @@
     
     <div id="lvl-7" class="tab-content">
         <h2>Native Fortress</h2>
-        <p>After reaching the second checkpoint, fall into the pit.</p>
+        <p>After reaching the last checkpoint, fall into the pit.</p>
 		<img src="./img/crash1/nf-da.jpg" alt="Death Abuse in Native Fortress">
     </div>
 </div>
@@ -564,7 +714,7 @@
 		<source src="./vid/crash1/sv-double.mp4" type="video/mp4">
 		</video>
 		<p>
-		Start of this clip burns in how many lives Crash should have.
+		Start of this clip showcases how many lives Crash should have, you don't necessarily require that many.
 		</p>
 	</div>
     
@@ -667,6 +817,20 @@
 			});
 
 			document.querySelectorAll('video').forEach(video => observer.observe(video));
+
+			const tocList = document.getElementById('toc-list');
+			const headings = document.querySelectorAll('h2:not(.tab-content h2)');
+			
+			headings.forEach(heading => {
+				const li = document.createElement('li');
+				const a = document.createElement('a');
+
+				a.textContent = heading.textContent;
+				a.href = '#' + heading.id;
+
+				li.appendChild(a);
+				tocList.appendChild(li);
+			});
 		});
 	</script>
 	</main>

@@ -1,1 +1,3 @@
-ffmpeg -i tempimg.png -q:v 5 output_5.jpg
+FOR %%x in (*.png) DO ffmpeg -n -i "%%x" -vf "crop=iw-48:ih:24:0,scale=iw*8:ih*8:flags=neighbor,scale=1280:960:flags=lanczos,crop=iw:ih-96:0:48" -q:v 5 "out\%%~nx.jpg"
+
+@echo ffmpeg -i tempimg.png -q:v 5 output_5.jpg
