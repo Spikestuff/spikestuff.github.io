@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Crash Team Racing has Shortcuts of Varying Difficulty</title>
+	<link rel="shortcut icon" href="./img/ico/crash.gif"/>
+	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
+<style>
+    body {
+        margin: 0;
+    }
+    
+    video {
+        object-fit: fill;
+        width: 640px;
+        height: 480px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    img {
+        object-fit: fill;
+        width: 640px;
+        height: 480px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    h1, h2, p, sup {
+        color: #B0AF9D;
+    }
+    
+    .tabs-container h2,
+    .tabs-container p {
+        color: black;
+    }
+    
+    a:link {
+        color: #BC65CB;
+        text-decoration: none;
+    }
+    
+    a:visited {
+        color: #4D3151;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+    
+    a:active {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .tabs-container {
+        width: 60%;
+        margin-bottom: 20px;
+        background-color: #B0AF9D;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .tabs {
+        display: flex;
+        align-items: center;
+        color: black;
+        background-color: #B0AF9D;
+        border: 4px solid #261629;
+    }
+    
+    .tab-button {
+        flex: 100%;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .tab-button.active {
+        background-color: #BC65CB;
+        color: #B0AF9D;
+        font-weight: bold;
+    }
+    
+    .tab-content {
+        text-align: center;
+        padding: 20px;
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .cphase-info {
+        text-align: left;
+    }
+    
+    table, th, td {
+        color: black;
+        background-color: #B0AF9D;
+        border: 4px solid #261629;
+        border-collapse: collapse;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+	#TNT-jumping {
+		margin-bottom: -70px;
+	}
+
+	.tntjump-vidtext {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.tntjump-text {
+		flex: 100% 136px;
+		padding-right: 10px;
+	}
+
+	.tntjump-video {
+		width: 136px;
+		height: 324px;
+		max-width: 100%;
+		max-height: 100%;
+		float: right;
+		margin-left: 10px;
+	}
+
+    .container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        min-height: 100vh;
+    }
+    
+    #left-menu {
+        color: white;
+        background-color: #120A13;
+		border: 1px solid white;
+        position: sticky;
+        top: 10px;
+        width: 250px;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    
+    .main-content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+    
+    @media (max-width: 1920px) {
+        .tabs-container {
+            width: 100%;
+        }
+    }
+    
+	@media (max-width: 1280px) {
+		.main-content {
+			flex-grow: 1;
+			padding: 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+    
+		.tabs,
+		.tab-button,
+		.tabs-container {
+			width: 100%;
+            font-size: 95%;
+		}
+		
+		#TNT-jumping {
+			margin-bottom: 0;
+		}
+		
+		.tntjump-vidtext {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			box-sizing: border-box; 
+		}
+
+		.tntjump-text {
+			padding: 0;
+		}
+
+		#left-menu {
+			display: none;
+		}
+	}
+    
+    @media (max-width: 954px) {
+        .tabs-container {
+            width: 100%;
+            font-size: 75%;
+        }
+        
+		img,
+        video {
+            height: auto;
+            max-width: 50%;
+            max-height: 50%;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div id="left-menu">
+            <h3>Table of Contents</h3>
+            <ul id="toc-list">
+				<li><a href="./ctrshortcuts.html">To the top~!</a></li>
+            </ul>
+        </div>
+        
+    <div class="main-content">
+		<p>
+		This area is also temporarily a secret.
+		<br><br>
+		Pending Changes:<br>
+		- Actually Record all the Shortcuts listed out... uh...<br>
+		Blizzard Bluff (Shortcut, Fence), Polar Pass (main, backup, backup alt), Oxide Station (main two, backup for second).<br>
+		Add Tiger Temple you have seen people not knowing about the shortcut here as well (also show the alt method).<br>
+		Add Dragon Mines same reason as Tiger Temple.</br>
+		- Get information where to actually place out where the shortcuts should land and maybe add a fifth...<br>
+		Which would come out as: Beginner, Intermediate, Advanced, Difficult, Expert.<br>
+		- Talk to the Hypnoshark for advice. You know basicsbut it's always good to know with someone who's most knowledgable.
+		</p>            
+	<p>
+		<a href="../index.html">Go back~!</a>
+	</p>
+	
+	<h1>Crash Team Racing has Shortcuts of Varying Difficulty<br>
+		<sup style="font-size: 50%;">(Send help, I don't have the skill ceiling that CTR runners have.)</sup></h1>
+	<p>
+	So Crash Team Racing is notorious for having quite a few shortcuts.
+	<br>
+	These are discussed about in length, but the difficulty of each trick varies.
+	<br><br>
+	As a bit of an Intermediate runner... who rusts every other year I had a question.
+	<br>
+	This question went right to Hypnoshark and that's "in what order would you learn each trick?"
+	<br><br>
+	And that's how this is set up. Each shortcut is in order of what you should learn first.
+	<br>
+	Some obvious shortcuts aren't shown like N. Sanity Beach and Tiger Temple's...
+	<br>
+	unless I have to showcase those ones... I might showcase those ones.
+	<br><br>
+	Now part of that answer is to watch Hypnoshark's Tutorial which you can find on <a href="https://www.youtube.com/watch?v=cUBNeFdqMH8">his YouTube</a> or <a href="https://www.youtube.com/watch?v=G5RMK1NCxGI">on GDQ</a>.
+	<br><br>
+	In that you'll learn that starting out with the Intermediate characters (Coco/N.Gin)
+	<br>
+	is better for starting out than the more Advanced characters (Dingodile/Tiny Tiger).
+	<br><br>
+	Anyways, I'm an idiot and I'll be doing every possible trick with Crash/Cortex (Balanced Characters)
+	<br>
+	to prove it can be done... without being able to see any of the critical UI interface.
+	<br><br>
+	I will do my best in organizing and ordering each shortcut in where they fall, and my best at explaining each shortcut.
+	<br><br>
+	If I don't properly explain a trick it will be taken over by (insert runner) whose words will be used instead,
+	<br>
+	and they will also be able to tell me where a trick actually ends up.
+	<br><br>
+	</p>
+	
+	<a href="#beginner">
+		<h2 id="beginner">Beginner Shortcuts</h2>
+	</a>
+	<p>
+	<div class="tabs-container">
+		<div class="tabs">
+			<div class="tab-button active" data-tab="min">Minimize</div>
+			<div class="tab-button" data-tab="bgn-1">Sewer Speedway</div>
+			<div class="tab-button" data-tab="bgn-2">Papu's Pyramid</div>
+			<div class="tab-button" data-tab="bgn-3">Hot Air Skyway</div>
+		</div>
+		<div id="min" class="active"></div>
+		
+		<div id="bgn-1" class="tab-content">
+			<h2>Sewer Speedway</h2>
+			<p>
+			Now, usually you would think I don't have to show how to perform one of the shortcuts.
+			<br>
+			But I have seen newcomers not know that you don't follow the full path out, so this is here.
+			</p>
+			<video width="640" height="480" controls loop>
+			<source src="./vid/ctr/hub1/ss-double.mp4" type="video/mp4">
+			</video>
+		</div>
+		
+		<div id="bgn-2" class="tab-content">
+			<h2>Papu's Pyramid</h2>
+			<p>
+			This level will show up a few times, but we'll show off the version that everyone should at least know.
+			<br>
+			At the final turn you can actually avoid this turn by having enough speed and making the jump across.
+			</p>
+			<video width="640" height="480" controls loop>
+			<source src="./vid/ctr/hub2/pp_normal-double.mp4" type="video/mp4">
+			</video>
+		</div>
+		
+		<div id="bgn-3" class="tab-content">
+			<h2>Hot Air Skyway</h2>
+			<p>
+			At the section where the later part of the track is on the other side of the wall perform a u-turn just after passing it.
+			<br>
+			Gain speed with a drift or a boost item and jump to the opposite side of the track, perform another u-turn for a quick recovery facing the correct direction, or take your time.
+			</p>
+			<video width="640" height="480" controls loop>
+			<source src="./vid/ctr/hub4/has_utrun-double.mp4" type="video/mp4">
+			</video>
+			<p>
+			Note: If you don't go down the track (like the clip) you won't load more of the track risking a failed attempt on this trick.
+			<br>
+			Even if you fail this trick it's possible the game can be forgiving and can make it a valid skip by pulling you across.
+			</p>
+		</div>
+	</div>
+
+	<a href="#advanced">
+		<h2 id="advanced">Advanced Shortcuts</h2>
+	</a>
+	<p>
+	Polar Pass
+	<br>
+	Papu's Pyramid
+	<br>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/ctr/hub2/pp_bu-utrun-double.mp4" type="video/mp4">
+		</video>
+	<br>
+	Hot Air Skyway
+	<br>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/ctr/hub4/has_skip-double.mp4" type="video/mp4">
+		</video>
+	</p>
+	
+	<a href="#difficult">
+		<h2 id="difficult">Difficult Shortcuts</h2>
+	</a>
+	<p>
+	Polar Pass
+	<br>
+	Papu's Pyramid
+	<br>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/ctr/hub2/pp_wall-double.mp4" type="video/mp4">
+		</video>
+	<br>
+	Hot Air Skyway
+	<br>
+		<video width="640" height="480" controls loop>
+		<source src="./vid/ctr/hub4/has_hairpin-double.mp4" type="video/mp4">
+		</video>
+	</p>
+	
+	<a href="#expert">
+		<h2 id="expert">Expert Shortcuts</h2>
+	</a>
+	<p>
+	So we're now going to enter what's considered the Hardest Shortcuts to perform.
+	<br>
+	These are methods that I personally can't do, and I am using Hypnoshark's vods where he performs these tricks.
+	<br><br>
+	Do not perform these tricks until you're more confident in the game, these aren't to be taken lightly and can lead into burnout.
+	</p>
+	<div class="tabs-container">
+		<div class="tabs">
+			<div class="tab-button active" data-tab="min">Minimize</div>
+			<div class="tab-button" data-tab="bgn-1">Papu's Pyramid</div>
+			<div class="tab-button" data-tab="bgn-2">Tiny Arena</div>
+		</div>
+		<div id="min" class="active"></div>
+		
+		<div id="bgn-1" class="tab-content">
+			<h2>Papu's Pyramid</h2>
+			<p>
+			You need to have enough speed, and the quickest way to do that is to be at the back and pick up an Aku/Uka Mask.
+			<br>
+			(Crticial Information I don't know)
+			</p>
+			<video width="640" height="480" controls loop>
+			<source src="./vid/ctr/hub2/.mp4" type="video/mp4">
+			</video>
+		</div>
+		
+		<div id="bgn-2" class="tab-content">
+			<h2>Tiny Arena</h2>
+			<p>
+			There's two tricks here, well three but no one is doing the TAS method, so I think I'm safe in not mentioning that one.
+			<br>
+			You need to fight the RNG and get a TNT/Nitro Crate and have 10 Wumpa.
+			<br>
+			Before completing the lap place the Nitro against the wall at a slight angle as <a href="https://youtu.be/cUBNeFdqMH8?t=7772">Hypnoshark demonstrates</a>.
+			<br><br>
+			Tiny Arena also holds a second shortcut where you want three Nitros total, and not two.
+			<br>
+			Under the bridge you will want to place around here-- (and I have no idea how to explain this one).
+		</div>
+	</div>
+
+		<p>
+			And that's Dingodile.
+		</p>
+	<a href="./ctrshortcuts.html">To the top~!</a>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => !entry.isIntersecting && entry.target.pause());
+			}, { threshold: 0.5 });
+			
+			document.addEventListener('click', event => {
+				const button = event.target.closest('.tab-button');
+				if (!button) return;
+				
+				const container = button.closest('.tabs-container');
+				const activeContent = container.querySelector('.tab-content.active');
+				activeContent?.querySelector('video')?.pause();
+
+				container.querySelectorAll('.tab-button.active, .tab-content.active').forEach(el => el.classList.remove('active'));
+
+				button.classList.add('active');
+				container.querySelector(`#${button.dataset.tab}`).classList.add('active');
+			});
+
+			document.querySelectorAll('video').forEach(video => observer.observe(video));
+
+			const tocList = document.getElementById('toc-list');
+			const headings = document.querySelectorAll('h2:not(.tab-content h2)');
+			
+			headings.forEach(heading => {
+				const li = document.createElement('li');
+				const a = document.createElement('a');
+
+				a.textContent = heading.textContent;
+				a.href = '#' + heading.id;
+
+				li.appendChild(a);
+				tocList.appendChild(li);
+			});
+		});
+	</script>
+	</main>
+	</body>
+</html>
