@@ -34,14 +34,12 @@
 		<h1> Using the SSD Kit for PS2SMB with the Pi 5 <br>
 			<sup style="font-size: 50%;">(How endless suffering lead to making a write up on what to do.)</sup></h1>
 		<p>
-			So this is a "basic" tutorial dealing with the Raspberry Pi 5 and the SSD Kit.
-			<br>
+			So this is a "basic" tutorial dealing with the Raspberry Pi 5 and the SSD Kit.<br>
 			Most of this guide will be using terminal (Ctrl + Alt + T).
 			<br><br>
 			And this guide assumes you already have <a href="https://github.com/ps2homebrew/Open-PS2-Loader"><b>Open PS2 Loader</b></a> running on your PS2.
 			<br><br>
-			This guide is also assuming that you have installed the drive into the Pi,
-			<br>
+			This guide is also assuming that you have installed the drive into the Pi,<br>
 			and it's been formatted to NTFS, and you have games on the drive in the folder layout.
 		</p>
 
@@ -55,16 +53,13 @@
 			<br><br>
 			<b>> lsblk</b>
 			<br><br>
-			This is to make sure the kit is installed.
-			<br>
+			This is to make sure the kit is installed.<br>
 			In my case it's "<c style="color:#ABABDC;"><b>> nvme0n1</b></c>" and the 512GB drive.
 			<br><br>
 			<b>> blkid /dev/<c style="color:#ABABDC;">nvme0n1<c></b>
 			<br><br>
-			This is to get the UUID for a later step in this part.
-			<br>
-			In my case it's "<c style="color:#DCDCAA;">306B5DB344146623</c>".
-			<br>
+			This is to get the UUID for a later step in this part.<br>
+			In my case it's "<c style="color:#DCDCAA;">306B5DB344146623</c>".<br>
 			This part will also confirm to me that my drive is formatted to ntfs.
 			<br><br>
 			
@@ -72,8 +67,7 @@
 			<br><br>
 			<b>> sudo mkdir /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
 			<br><br>
-			In my case I've made the mounted drive "<c style="color:#DCABAB;">ps2smb</c>".
-			<br>
+			In my case I've made the mounted drive "<c style="color:#DCABAB;">ps2smb</c>".<br>
 			You can name it to whatever you prefer here.
 			<br><br>
 			You can also now validate if you're able to mount your drive by writing the command:
@@ -83,18 +77,16 @@
 			After mounting you want to give yourself full permission to the folder:
 			<br><br>
 			<b>> chmod 777 /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
-			
 			<br><br>
 			Now we want to set up the drive to automatically mount:
 			<br><br>
-			<b>> sudo gedit /etc/fstab</b>
-			<br>
+			<b>> sudo gedit /etc/fstab</b><br>
 			<sup style="font-size: 75%;">Personally I use <i>gedit</i> as my text editor as I dislike looking through a terminal (nano).</sup>
 			<br><br>
 			And now we can add this line towards the bottom of the file:
-			<br><br><b>
-			# PS2SMB (/dev/<c style="color:#ABABDC;">nvme0n1</c>)
-			<br>UUID=<c style="color:#DCDCAA;">306B5DB344146623</c> /mnt/<c style="color:#DCABAB;">ps2smb</c> ntfs defaults,noatime 0 1</b>
+			<br><br>
+			<b># PS2SMB (/dev/<c style="color:#ABABDC;">nvme0n1</c>)<br>
+			UUID=<c style="color:#DCDCAA;">306B5DB344146623</c> /mnt/<c style="color:#DCABAB;">ps2smb</c> ntfs defaults,noatime 0 1</b>
 			<br><br>
 			Save and reboot your Pi. It should now automatically mount.
 			</p>
@@ -105,8 +97,7 @@
 			<h2 id="part-2-networking"> Part 2: Setting up the Networking </h2>
 		</a>
 		<p>
-			Before going through the terminal, let's first set up our Ethernet.
-			<br>
+			Before going through the terminal, let's first set up our Ethernet.<br>
 			Within the Wired Connection create this IPv4 setting to the following:
 			<br><br>
 			<img src="./img/network.png" alt="Wired Internet Information">
@@ -123,32 +114,21 @@
 			<br><br>
 			Towards the top of the configuration file place the following:
 			<br><br><b>
-			[global]
-			<br>
-			client min protocol = LANMAN1
-			<br>
-			server min protocol = LANMAN1
-			<br>
-			client max protocol = SMB3
-			<br>
-			server max protocol = SMB3
-			</b>
+			[global]<br>
+			client min protocol = LANMAN1<br>
+			server min protocol = LANMAN1<br>
+			client max protocol = SMB3<br>
+			server max protocol = SMB3</b>
 			<br><br>
 			Towards the bottom create this new section:
-			<br><br><b>[<c style="color:#DCABAB;">PS2SMB</c>]
-			<br>
-			comment = <c style="color:#DCABAB;">ps2smb</c>
-			<br>
-			path = /mnt/<c style="color:#DCABAB;">ps2smb</c>
-			<br>
-			browseable = yes
-			<br>
-			read only = no
-			<br>
-			guest ok = yes
-			<br>
-			public = yes
-			<br>
+			<br><br>
+			<b>[<c style="color:#DCABAB;">PS2SMB</c>]<br>
+			comment = <c style="color:#DCABAB;">ps2smb</c><br>
+			path = /mnt/<c style="color:#DCABAB;">ps2smb</c><br>
+			browseable = yes<br>
+			read only = no<br>
+			guest ok = yes<br>
+			public = yes<br>
 			available = yes</b>
 		</p>
 	
@@ -158,22 +138,18 @@
 			<h2 id="part-3-ps2loader"> Part 3: Setting up Open PS2 Loader </h2>
 		</a>
 		<p>
-			When connecting a Network Cable between the PS2 and Pi,
-			<br>
+			When connecting a Network Cable between the PS2 and Pi,<br>
 			I found better results using a Crossover Cable rather than a standard one.
 			<br><br>
-			It has been reported that the standard one works fine as well,
-			<br>
+			It has been reported that the standard one works fine as well,<br>
 			but I'm showcasing what works better for me personally.
 			<br><br>
-			When using <b>Open PS2 Loader</b> enter "Network Settings"
-			<br>
+			When using <b>Open PS2 Loader</b> enter "Network Settings"<br>
 			and you can copy the settings provided here:
 			<br><br>
 			<img src="./img/oplnetwork.png" alt="Open PS2 Loader Network Settings">
 			<br><br>
-			Select "Reconnect" then "Ok".
-			<br>
+			Select "Reconnect" then "Ok".<br>
 			Be sure to save the settings.
 			<br><br>
 			And that's it.
