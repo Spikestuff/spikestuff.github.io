@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Setting up and running SheepShaver</title>
-	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
-
-	<style>
-		a:link {
-			color: #BC65CB;
-			text-decoration: none;
-		}
-		a:visited {
-			color: #4D3151;
-			text-decoration: none;
-		}
-		a:hover {
-			color: white;
-			text-decoration: underline;
-		}
-		a:active {
-			color: black;
-			text-decoration: underline;
-		}
-
-		h1, h2, p, sup {
-			color: #B0AF9D;
-		}
-	</style>
-	
-	<main>
-		<p>
-			<a href="../index.html">Go back~!</a>
-		</p>
-		<h1> Setting up and running SheepShaver <br>
-			<sup style="font-size: 50%;">(She wanted <i>Safecracker</i>, but I installed <i>Myst</i>.)</sup></h1>
+		<title>Setting up and running SheepShaver</title>
+		<link rel="shortcut icon" href="./img/ico/trans.png"/>
+		<link rel="stylesheet" type="text/css" href="css.css">
+	</head>
+	<body>		
+		<div class="sidenav">
+			<a href="../index.html">Homepage</a><br>
+			<br>
+			Guides:
+			<li>/ <a href="./lumasynth.html">Luma Keying and Layers with AVISynth+</a><br></li>
+			<li>/ <a href="./sheepshaver.html">Setting up and running SheepShaver</a><br></li>
+				<ul>+ <a href="#part-1-prerequisite">Part 1: Prerequisite Files</a></ul>
+				<ul>+ <a href="#part-2-sheepshaver">Part 2: Setting up SheepShaver</a></ul>
+				<ul>+ <a href="part-3-installing">Part 3: Installing MacOS and Playing Your Title</a></ul>
+			<li>/ <a href="./mystany.html">The Endless Void That is Myst any%</a><br></li>
+			<li>/ <a href="./ps2smb.html">Using the SSD Kit for PS2SMB with the Pi 5</a></li>
+			<br>
+			Speedrunning:
+			<li>/ <a href="./crash1any.html">Summarizing Crash Bandicoot any%</a></li>
+		</div>
+		<main>
+			<h1>Setting up and running SheepShaver<br>
+			<sup>(She wanted <i>Safecracker</i>, but I installed <i>Myst</i>.)</sup></h1>
 		<p>
 			There was probably information on this sort of thing,<br>
 			but for me it's running into the issue head first.
 		</p>
 
-		<br>
-
 		<a href="#part-1-prerequisite">
 			<h2 id="part-1-prerequisite"> Part 1: Prerequisite Files </h2>
 		</a>
-		<p><br>
+		<p>
 			Starting off we actually need the program SheepShaver which is on; 
 			<a href="https://www.emaculation.com/forum/viewtopic.php?t=5325"><b>Windows</b></a>, 
 			<a href="https://github.com/Korkman/macemu-appimage-builder/releases/latest"><b>Linux</b></a> and
@@ -55,13 +44,12 @@
 			For the ROM File we're going to be using a <i>Power Mac 6500</i>.<br>
 			We also want our game in the <i>.toast</i> format, this is the format it wants to have. We're using <i>Myst</i>.
 			<br><br>
-			What you thought I was actually going to provide that stuff? No.
+			What you thought I was actually going to provide that stuff?<br>
+			No.
 		</p>
-		
-	<br>
 	
-		<a href="#part-1-sheepshaver">
-			<h2 id="part-1-sheepshaver"> Part 1: Setting up SheepShaver </h2>
+		<a href="#part-2-sheepshaver">
+			<h2 id="part-2-sheepshaver"> Part 2: Setting up SheepShaver </h2>
 		</a>
 		<p>
 			We're going to be using the SheepShaverGUI setup for this, otherwise I would want to void out.
@@ -81,10 +69,8 @@
 			Select <i>Start</i>.
 		</p>
 	
-	<br>
-	
-		<a href="#part-2-installing">
-			<h2 id="part-2-installing"> Part 2: Installing MacOS and Playing Your Title </h2>
+		<a href="#part-3-installing">
+			<h2 id="part-3-installing"> Part 3: Installing MacOS and Playing Your Title </h2>
 		</a>
 		<p>
 			Follow the initialization process.<br>
@@ -95,7 +81,7 @@
 			You can now launch without the GUI executable, and now you can follow the <i>installation</i> process for the game you want to play.<br>
 			Congratulations, you can now play your game-- <i>Myst</i>.
 			<br><br>
-			<img src="./img/sheepshavermyst.png" alt="Myst Running in SheepShaver">
+			<img src="./img/sheepshavermyst.png" width="642" height="507" alt="Myst Running in SheepShaver">
 			<br><br>
 			And that's Myst.
 		</p>

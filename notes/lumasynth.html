@@ -1,88 +1,73 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Luma Keying and Layers with AVISynth+</title>
-	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
-
-	<style>
-		video {
-			height: auto;
-			max-width: 100%;
-			max-height: 100%;
-		}
-		a:link {
-			color: #BC65CB;
-			text-decoration: none;
-		}
-		a:visited {
-			color: #4D3151;
-			text-decoration: none;
-		}
-		a:hover {
-			color: white;
-			text-decoration: underline;
-		}
-		a:active {
-			color: black;
-			text-decoration: underline;
-		}
-
-		h1, h2, p, sup {
-			color: #B0AF9D;
-		}
-	</style>
-	
-	<main>
-		<p>
-			<a href="../index.html">Go back~!</a>
-		</p>
-		<h1> Luma Keying and Layers with AVISynth+ <br>
-			<sup style="font-size: 50%;">(When there was no guide providing this information.)</sup></h1>
-		<p>
-			When I went to make this AVISynth+ script there was no information.			<br>
+		<title>Luma Keying and Layers with AVISynth+</title>
+		<link rel="shortcut icon" href="./img/ico/trans.png"/>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<link rel="stylesheet" type="text/css" href="code.css">
+		<script src="code.js" defer></script>
+	</head>
+	<body>		
+		<div class="sidenav">
+			<a href="../index.html">Homepage</a><br>
+			<br>
+			Guides:
+			<li>/ <a href="./lumasynth.html">Luma Keying and Layers with AVISynth+</a><br></li>
+			<li>/ <a href="./sheepshaver.html">Setting up and running SheepShaver</a><br></li>
+			<li>/ <a href="./mystany.html">The Endless Void That is Myst any%</a><br></li>
+			<li>/ <a href="./ps2smb.html">Using the SSD Kit for PS2SMB with the Pi 5</a></li>
+			<br>
+			Speedrunning:
+			<li>/ <a href="./crash1any.html">Summarizing Crash Bandicoot any%</a></li>
+		</div>
+		<main>
+			<h1>
+				Luma Keying and Layers with AVISynth+<br>
+				<sup>(When there was no guide providing this information.)</sup>
+			</h1>
+			
+			<p>When I went to make this AVISynth+ script there was no information.<br>
 			Just a lot of dead ends, and information that was either wrong or incomplete.
 			<br><br>
-			There was nothing for Luma Keying in AVISynth+.<br>
-			And nothing concrete about how to use layers with it.
+			There was nothing for Luma Keying in AVISynth+.<br>And nothing concrete about how to use layers with it.
 			<br><br>
 			So if you're the person searching for this sort of script well...<br>
-			This is the script on how to do Luma Keying and adding Layers with AVISynth+.
-			<br><br><b>
-			<c style="color:#DCABAB;">base_video</c> = <c style="color:#DCDCAA;">DirectShowSource</c>(<c style="color:#CE9178;">"base_video.webm"</c>).<c style="color:#DCDCAA;">ConvertTORGB32()</c><br>
-			<c style="color:#ABABDC;">luma_key</c> = <c style="color:#DCDCAA;">DirectShowSource</c>(<c style="color:#CE9178;">"luma_key.webm"</c>).<c style="color:#DCDCAA;">ConvertTORGB32()</c>
-			<br><br>
-			<c style="color:#ABDCAB;">background</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"background.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, end=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>)<br>
-			<c style="color:#ABDCDC;">foreground</c> = <c style="color:#DCDCAA;">ImageSource</c>(<c style="color:#CE9178;">"foreground.png"</c>, fps=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framerate</c>, end=<c style="color:#DCABAB;">base_video</c>.<c style="color:#DCDCAA;">framecount</c>, pixel_type=<c style="color:#CE9178;">"RGB32"</c>)
-			<br><br>
-			<c style="color:#DCABDC;">maskclip</c> = <c style="color:#DCDCAA;">ColorKeyMask</c>((<c style="color:#ABABDC;">luma_key</c>, <c style="color:#B5CEA8;">$000000</c>, <c style="color:#B5CEA8;">0</c>)<br>
-			<c style="color:#DCDCAA;">Overlay</c>(<c style="color:#ABDCAB;">background</c>, <c style="color:#DCABAB;">base_video</c>, mask=<c style="color:#DCABDC;">maskclip</c>, mode=<c style="color:#CE9178;">"blend"</c>, opacity=<c style="color:#B5CEA8;">1</c>))
-			<br><br>
-			<c style="color:#DCDCAA;">Overlay</c>(last, <c style="color:#ABDCDC;">foreground</c>, mask=<c style="color:#ABDCDC;">foreground</c>.<c style="color:#DCDCAA;">ShowAlpha</c>())
-			</b>
-		</p>
-		<br>
-		<video width="1280" height="720" controls loop>
-			<source src="./vid/lumaexamp.mp4" type="video/mp4">
-		</video>
-		<br>
-		<sup>Assets are from <a href="https://store.steampowered.com/app/1989270/";><b>Slay the Princess</b></a> (Steam).</sup>
-		<h2>Additional notes.</h2>
-		<p>
-			In the example above the <c style="color:#CE9178;">webm</c> format was used,<br>
-			which is why <c style="color:#DCDCAA;">DirectShowSource</c> was relied on and showcased in the script.
-			<br><br>
-			If your videos are in the <c style="color:#CE9178;">avi</c> format use <c style="color:#DCDCAA;">AVISource</c> for instance.
-			<br><br>
-			Video in <c style="color:#CE9178;">mp4</c> or <c style="color:#CE9178;">mkv</c> formats?<br>
-			Use <c style="color:#DCDCAA;">FFVideoSource</c> or <c style="color:#DCDCAA;">FFmpegSource</c>, etc. etc.
-			<br><br>
-			The example above also has more layers stacked upon it compared to the provided script,<br>
-			this is done to showcase what you can do, and is simplified to the bare minimum for first time use.
-			<br><br>
-			Anyways, that's it.<br>
-			Enjoy if you actually needed this.
-		</p>
-	<a href="./lumasynth.html">To the top~!</a>
-	</main>
+			This is the script on how to do Luma Keying and adding Layers with AVISynth+.</p>
+			<pre><code class="script">
+base_video = DirectShowSource("base_video.webm").ConvertTORGB32()
+luma_key = DirectShowSource("luma_key.webm").ConvertTORGB32()
+
+background = ImageSource("background.png", fps=base_video.framerate, end=base_video.framecount)
+foreground = ImageSource("foreground.png", fps=base_video.framerate, end=base_video.framecount, pixel_type="RGB32")
+
+maskclip = ColorKeyMask(luma_key, $000000, 0)
+Overlay(background, base_video, mask=maskclip, mode="blend", opacity=1)
+
+Overlay(last, foreground, mask=foreground.ShowAlpha())
+			</code></pre>
+
+			<video width="1280" height="720" controls loop>
+				<source src="./vid/lumaexamp.mp4" type="video/mp4">
+			</video>
+			<br>
+			<sup>Assets are from <a href="https://store.steampowered.com/app/1989270/">Slay the Princess</a> (Steam).</sup>
+			<h2>Additional notes.</h2>
+			<p class="script">
+				In the example above the webm format was used,<br>
+				which is why DirectShowSource was relied on and showcased in the script.
+				<br><br>
+				If your videos are in the avi format use AVISource for instance.
+				<br><br>
+				Video in mp4 or mkv formats?<br>
+				Use FFVideoSource or FFmpegSource, etc. etc.
+				<br><br>
+				The example above also has more layers stacked upon it compared to the provided script,<br>
+				this is done to showcase what you can do, and is simplified to the bare minimum for first time use.
+				<br><br>
+				Anyways, that's it.<br>
+				Enjoy if you actually needed this.
+			</p>
+			<p><a href="./lumasynth.html">To the top~!</a></p>
+		</main>
 	</body>
 </html>

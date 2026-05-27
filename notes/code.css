@@ -1,0 +1,10 @@
+.hl-base { color: #DCABAB; }
+.hl-func { color: #DCDCAA; }
+.hl-str { color: #CE9178; }
+.hl-luma { color: #ABABDC; }
+.hl-bg { color: #ABDCAB; }
+.hl-fg { color: #ABDCDC; }
+.hl-mask { color: #DCABDC; }
+.hl-num { color: #B5CEA8; }
+
+pre code {font-weight: bold; white-space: pre-wrap;}

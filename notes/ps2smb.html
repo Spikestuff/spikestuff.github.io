@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Using the SSD Kit for PS2SMB with the Pi 5</title>
-	<body style="background-color:black; text-align: center; font-family: monospace; font-size: 175%;">
-
-	<style>
-		a:link {
-			color: #BC65CB;
-			text-decoration: none;
-		}
-		a:visited {
-			color: #4D3151;
-			text-decoration: none;
-		}
-		a:hover {
-			color: white;
-			text-decoration: underline;
-		}
-		a:active {
-			color: black;
-			text-decoration: underline;
-		}
-
-		h1, h2, p, sup {
-			color: #B0AF9D;
-		}
-	</style>
-	
-	<main>
-		<p>
-			<a href="../index.html">Go back~!</a>
-		</p>
+		<title>Using the SSD Kit for PS2SMB with the Pi 5</title>
+		<link rel="shortcut icon" href="./img/ico/trans.png"/>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<link rel="stylesheet" type="text/css" href="code.css">
+		<script src="code.js" defer></script>
+	</head>
+	<body>		
+		<div class="sidenav">
+			<a href="../index.html">Homepage</a><br>
+			<br>
+			Guides:
+			<li>/ <a href="./lumasynth.html">Luma Keying and Layers with AVISynth+</a><br></li>
+			<li>/ <a href="./sheepshaver.html">Setting up and running SheepShaver</a><br></li>
+			<li>/ <a href="./mystany.html">The Endless Void That is Myst any%</a><br></li>
+			<li>/ <a href="./ps2smb.html">Using the SSD Kit for PS2SMB with the Pi 5</a></li>
+				<ul>+ <a href="#part-1-mounting">Part 1: Mounting The Drive in Raspberry Pi OS</a></ul>
+				<ul>+ <a href="#part-2-networking">Part 2: Setting up the Networking</a></ul>
+				<ul>+ <a href="#part-3-ps2loader">Part 3: Setting up Open PS2 Loader</a></ul>
+			<br>
+			Speedrunning:
+			<li>/ <a href="./crash1any.html">Summarizing Crash Bandicoot any%</a></li>
+		</div>
+		<main>
 		<h1> Using the SSD Kit for PS2SMB with the Pi 5 <br>
-			<sup style="font-size: 50%;">(How endless suffering lead to making a write up on what to do.)</sup></h1>
+			<sup>(How endless suffering lead to making a write up on what to do.)</sup></h1>
 		<p>
 			So this is a "basic" tutorial dealing with the Raspberry Pi 5 and the SSD Kit.<br>
 			Most of this guide will be using terminal (Ctrl + Alt + T).
@@ -43,60 +36,56 @@
 			and it's been formatted to NTFS, and you have games on the drive in the folder layout.
 		</p>
 
-	<br>
-
 		<a href="#part-1-mounting">
 			<h2 id="part-1-mounting"> Part 1: Mounting The Drive in Raspberry Pi OS </h2>
 		</a>
-		<p>
+		<p class="script">
 			We can now do the following:
 			<br><br>
 			<b>> lsblk</b>
 			<br><br>
 			This is to make sure the kit is installed.<br>
-			In my case it's "<c style="color:#ABABDC;"><b>> nvme0n1</b></c>" and the 512GB drive.
+			In my case it's "<b>> nvme0n1</b>" and the 512GB drive.
 			<br><br>
-			<b>> blkid /dev/<c style="color:#ABABDC;">nvme0n1<c></b>
+			<b>> blkid /dev/nvme0n1</b>
 			<br><br>
 			This is to get the UUID for a later step in this part.<br>
-			In my case it's "<c style="color:#DCDCAA;">306B5DB344146623</c>".<br>
+			In my case it's "306B5DB344146623".<br>
 			This part will also confirm to me that my drive is formatted to ntfs.
 			<br><br>
 			
 			Next we're going to make a folder to mount the drive to (Linux is case sensitive):
 			<br><br>
-			<b>> sudo mkdir /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> sudo mkdir /mnt/ps2smb</b>
 			<br><br>
-			In my case I've made the mounted drive "<c style="color:#DCABAB;">ps2smb</c>".<br>
+			In my case I've made the mounted drive "ps2smb".<br>
 			You can name it to whatever you prefer here.
 			<br><br>
 			You can also now validate if you're able to mount your drive by writing the command:
 			<br><br>
-			<b>> sudo mount /dev/<c style="color:#ABABDC;">nvme0n1</c> /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> sudo mount /dev/nvme0n1 /mnt/ps2smb</b>
 			<br><br>
 			After mounting you want to give yourself full permission to the folder:
 			<br><br>
-			<b>> chmod 777 /mnt/<c style="color:#DCABAB;">ps2smb</c></b>
+			<b>> chmod 777 /mnt/ps2smb</b>
 			<br><br>
 			Now we want to set up the drive to automatically mount:
 			<br><br>
 			<b>> sudo gedit /etc/fstab</b><br>
-			<sup style="font-size: 75%;">Personally I use <i>gedit</i> as my text editor as I dislike looking through a terminal (nano).</sup>
+			<sup>Personally I use <i>gedit</i> as my text editor as I dislike looking through a terminal (nano).</sup>
 			<br><br>
 			And now we can add this line towards the bottom of the file:
 			<br><br>
-			<b># PS2SMB (/dev/<c style="color:#ABABDC;">nvme0n1</c>)<br>
-			UUID=<c style="color:#DCDCAA;">306B5DB344146623</c> /mnt/<c style="color:#DCABAB;">ps2smb</c> ntfs defaults,noatime 0 1</b>
+			<b># PS2SMB (/dev/nvme0n1)<br>
+			UUID=306B5DB344146623 /mnt/ps2smb ntfs defaults,noatime 0 1</b>
 			<br><br>
 			Save and reboot your Pi. It should now automatically mount.
 			</p>
-
-	<br>
 	
 		<a href="#part-2-networking">
 			<h2 id="part-2-networking"> Part 2: Setting up the Networking </h2>
 		</a>
-		<p>
+		<p class="script">
 			Before going through the terminal, let's first set up our Ethernet.<br>
 			Within the Wired Connection create this IPv4 setting to the following:
 			<br><br>
@@ -122,17 +111,15 @@
 			<br><br>
 			Towards the bottom create this new section:
 			<br><br>
-			<b>[<c style="color:#DCABAB;">PS2SMB</c>]<br>
-			comment = <c style="color:#DCABAB;">ps2smb</c><br>
-			path = /mnt/<c style="color:#DCABAB;">ps2smb</c><br>
+			<b>[PS2SMB]<br>
+			comment = ps2smb<br>
+			path = /mnt/ps2smb<br>
 			browseable = yes<br>
 			read only = no<br>
 			guest ok = yes<br>
 			public = yes<br>
 			available = yes</b>
 		</p>
-	
-	<br>
 	
 		<a href="#part-3-ps2loader">
 			<h2 id="part-3-ps2loader"> Part 3: Setting up Open PS2 Loader </h2>
