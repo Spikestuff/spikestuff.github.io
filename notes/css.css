@@ -12,7 +12,9 @@ a:visited { color: #87568f; text-decoration: none; }
 a:hover { color: white; text-decoration: underline; }
 a:active { color: black; text-decoration: underline; }
 
-.sidenav {width:15rem; height:100%; padding: 1rem; top: 0px; left: 0px; color:#B0AF9D; background-color: #0c070d; overflow-x: hidden; font-size:1rem; position: fixed; border-right: 5px #4d3151 dashed; background-clip: padding-box; }
+.sidenav {width:15rem; height:100%; padding: 1rem; top: 0px; left: 0px; color:#B0AF9D; background-color: #0c070d; overflow-x: hidden; font-size:1rem; position: fixed;
+background-image: repeating-conic-gradient(#0c070d 0 25%, #000 0 50%); background-size: 50px 50px;
+border-right: 5px #4d3151 dashed; background-clip: padding-box; }
 li {margin: 0px; padding: 4px; list-style-type: none;}
 ul {margin:6px 0px 3px 0px; padding-left: 30px;}
 ul li {margin:0px; font-size:12px;}
@@ -38,7 +40,7 @@ table, th, td { color: black; background-color: #B0AF9D; border: 4px solid #2616
 @media (max-width: 1280px) {
     body {font-size: 1rem; top: -2rem; left: 16rem; padding: 1rem; width: auto;}
     h1 sup, h2 sup {font-size: 1rem;}
-    .sidenav { width: 14rem; }
+    .sidenav { width: 14rem; background-image: none; }
     .tntjump-video {width: 136px !important; height: auto !important; float: right; padding-right: 0px;}
 }
 
