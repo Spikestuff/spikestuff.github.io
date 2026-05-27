@@ -1,6 +1,6 @@
 body { margin: 0; background-color: black; font-family: monospace; font-size: 1.125rem; position: absolute; top: -2rem; left: 18rem; padding: 1rem; overflow-x: hidden; color: #B0AF9D; width: 75rem;}
 
-video, img { object-fit: fill; max-width: 100%; height: auto; }
+video, img { object-fit: fill; max-width: 100%;}
 video:not([width]), img:not([width]) { width: 640px; height: 480px; }
 h1, h2, h3 {line-height: 1;}
 h1 sup, h2 sup {font-size: 1.125rem;}
