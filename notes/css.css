@@ -1,3 +1,4 @@
+:root { color-scheme: light dark; }
 body { margin: 0; background-color: black; font-family: monospace; font-size: 1.125rem; position: absolute; top: -2rem; left: 18rem; padding: 1rem; overflow-x: hidden; color: #B0AF9D; width: 75rem;}
 
 video, img { object-fit: fill; max-width: 100%;}
@@ -33,6 +34,7 @@ ul li {margin:0px; font-size:12px;}
 
 table, th, td { color: black; background-color: #B0AF9D; border: 4px solid #261629; border-collapse: collapse; margin: 0 auto; margin-left: 0px; }
 
+/* Crash any% video stuff */
 .tntjump-video { float: right; padding-right: 22rem;}
 
 @media (max-width: 1920px) { .tabs-container { width: 100%; } }
