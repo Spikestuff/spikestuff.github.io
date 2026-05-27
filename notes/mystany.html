@@ -3,11 +3,11 @@
 	<head>
 		<title>The Endless Void That is Myst any%</title>
 		<link rel="shortcut icon" href="./img/ico/myst.png"/>
-		<link rel="stylesheet" type="text/css" href="css.css">
-	<style>
-		body{width: 50rem;}
-		@media (max-width: 1280px) {body{width:auto;}}
-	</style>
+		<link id="theme-sheet" rel="stylesheet" type="text/css" href="css.css">
+	<script>
+	    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.getElementById('theme-sheet').href = "./mobile.css";}
+	</script>
 	</head>
 	<body>		
 		<div class="sidenav">

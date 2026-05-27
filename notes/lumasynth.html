@@ -3,8 +3,12 @@
 	<head>
 		<title>Luma Keying and Layers with AVISynth+</title>
 		<link rel="shortcut icon" href="./img/ico/trans.png"/>
-		<link rel="stylesheet" type="text/css" href="css.css">
+		<link id="theme-sheet" rel="stylesheet" type="text/css" href="css.css">
 		<link rel="stylesheet" type="text/css" href="code.css">
+	<script>
+	    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.getElementById('theme-sheet').href = "./mobile.css";}
+	</script>
 		<script src="code.js" defer></script>
 	</head>
 	<style>

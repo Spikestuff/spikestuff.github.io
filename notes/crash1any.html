@@ -3,7 +3,11 @@
 <head>
 	<title>Summarizing Crash Bandicoot any% in a Webpage and Not Over 123 Videos</title>
 	<link rel="shortcut icon" href="./img/ico/crash.gif"/>
-	<link rel="stylesheet" type="text/css" href="css.css">
+	<link id="theme-sheet" rel="stylesheet" type="text/css" href="css.css">
+	<script>
+	    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.getElementById('theme-sheet').href = "./mobile.css";}
+	</script>
 </head>
 <body>		
 		<div class="sidenav">

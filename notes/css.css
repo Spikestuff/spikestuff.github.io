@@ -17,8 +17,8 @@ a:active { color: black; text-decoration: underline; }
 background-image: repeating-conic-gradient(#0c070d 0 25%, #000 0 50%); background-size: 50px 50px;
 border-right: 5px #4d3151 dashed; background-clip: padding-box; }
 li {margin: 0px; padding: 4px; list-style-type: none;}
-ul {margin:6px 0px 3px 0px; padding-left: 30px;}
-ul li {margin:0px; font-size:12px;}
+ul { margin: 6px 0px 3px 0px; padding-left: 1.875rem; }
+ul li { margin: 0px; font-size: 0.75rem; }
 
 .container { display: flex; justify-content: flex-start; align-items: flex-start; width: 100%; min-height: 100vh; }
 #left-menu { color: white; background-color: #120A13; border: 1px solid white; position: sticky; top: 10px; width: 250px; padding: 10px; overflow-y: auto; }
