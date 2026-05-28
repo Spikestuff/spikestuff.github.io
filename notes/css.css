@@ -1,5 +1,4 @@
-:root { color-scheme: light dark; }
-body { margin: 0; background-color: black; font-family: monospace; font-size: 1.125rem; position: absolute; top: -2rem; left: 18rem; padding: 1rem; overflow-x: hidden; color: #B0AF9D; width: 75rem;}
+body { margin: 0; padding: 1rem; background-color: black; font-family: monospace; font-size: 1.125rem; position: absolute; top: -2rem; left: 18rem; overflow-x: hidden; color: #B0AF9D; width: 75rem;}
 
 video, img { object-fit: fill; max-width: 100%;}
 video:not([width]), img:not([width]) { width: 640px; height: 480px; }
