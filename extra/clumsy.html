@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aren't You Clumsy?</title>
+	<link rel="shortcut icon" href="./ebnd/icon.png"/>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #6A0900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #viewport-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #bg-canvas, #context-menu canvas {
+            image-rendering: pixelated;
+        }
+
+        #bg-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        #context-menu {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            pointer-events: auto;
+            cursor: pointer;
+            transform-origin: top left;
+        }
+
+        #context-menu canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewport-container">
+        <canvas id="bg-canvas"></canvas>
+    </div>
+
+    <video id="source-video" src="./ebnd/video.mp4" autoplay loop style="position: absolute; width: 1px; height: 1px; opacity: 0.001; pointer-events: none; z-index: -1;"></video>
+    <audio id="bg-audio" src="./ebnd/audio.mp3" loop style="display: none;"></audio>
+
+    <div id="context-menu">
+        <canvas id="menu-canvas" width="76" height="32"></canvas>
+    </div>
+
+    <script>
+        let imageStretch = 0.875;
+        let overlayStep = 0;
+        let menuCoords = { x: 0, y: 0 };
+        let isMenuVisible = false;
+        let isHovered = false;
+        let audioStarted = false;
+
+        const bgCanvas = document.getElementById('bg-canvas');
+        const bgCtx = bgCanvas.getContext('2d', { alpha: false });
+        const viewport = document.getElementById('viewport-container');
+        const videoElement = document.getElementById('source-video');
+        const audioElement = document.getElementById('bg-audio');
+        const contextMenu = document.getElementById('context-menu');
+        const menuCanvas = document.getElementById('menu-canvas');
+        const menuCtx = menuCanvas.getContext('2d');
+
+        const offscreenCanvas = document.createElement('canvas');
+        const offscreenCtx = offscreenCanvas.getContext('2d', { alpha: false });
+
+        const enemyImg = Object.assign(new Image(), { src: './ebnd/enemy.png' });
+        const uiImg = Object.assign(new Image(), { src: './ebnd/ui.png' });
+        const buttonImg = Object.assign(new Image(), { src: './ebnd/button.png' });
+        const returnImg = Object.assign(new Image(), { src: './ebnd/return.png' });
+
+        const redirectToHome = () => { window.location.replace('../index.html');};
+
+        audioElement.volume = 0.20;
+        videoElement.play().catch(() => {});
+
+        const isInsideRect = (clientX, clientY, rect) => 
+            clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+
+        window.addEventListener('auxclick', (e) => {
+            if (e.button === 1) {
+                e.preventDefault();
+                if (!audioStarted) {
+                    audioStarted = true;
+                    audioElement.play().catch(() => {});
+                }
+                overlayStep = (overlayStep + 1) % 3;
+            }
+        });
+
+        window.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            isMenuVisible = true;
+            menuCoords = { x: e.clientX, y: e.clientY };
+            contextMenu.style.display = 'block';
+        });
+
+        window.addEventListener('click', (e) => {
+            const rect = menuCanvas.getBoundingClientRect();
+            if (isInsideRect(e.clientX, e.clientY, rect)) {
+                redirectToHome();
+                return;
+            }
+            if (isMenuVisible) {
+                isMenuVisible = false;
+                contextMenu.style.display = 'none';
+            } else {
+                imageStretch = Math.abs(imageStretch - 0.875) < 0.01 ? 1.16667 : 0.875;
+            }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isMenuVisible) return;
+            isHovered = isInsideRect(e.clientX, e.clientY, menuCanvas.getBoundingClientRect());
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'm') {
+                audioElement.muted = !audioElement.muted;
+            }
+            if (e.key === 'F12' || (e.ctrlKey && (['i', 'j', 'c', 'u'].includes(e.key.toLowerCase()) || (e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase()))))) {
+                e.preventDefault();
+                window.location.replace('../index.html');
+            }
+        });
+
+        setInterval(() => {
+            if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                redirectToHome();
+            }
+        }, 500);
+
+        function drawMenu() {
+            menuCtx.clearRect(0, 0, 76, 32);
+
+            if (buttonImg.complete && buttonImg.naturalWidth) {
+                menuCtx.drawImage(buttonImg, 0, 0, 76, 32);
+            }
+
+            if (returnImg.complete && returnImg.naturalWidth) {
+                if (isHovered) {
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = 60;
+                    tempCanvas.height = 8;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.drawImage(returnImg, 0, 0);
+                    tempCtx.globalCompositeOperation = 'source-in';
+                    tempCtx.fillStyle = '#f7f7bd';
+                    tempCtx.fillRect(0, 0, 60, 8);
+
+                    menuCtx.drawImage(tempCanvas, 8, 11);
+                    menuCtx.fillStyle = '#f7f7bd';
+                    menuCtx.fillRect(8, 20, 60, 1);
+                } else {
+                    menuCtx.drawImage(returnImg, 8, 11, 60, 8);
+                }
+            }
+        }
+
+        function render() {
+            requestAnimationFrame(render);
+            drawMenu();
+
+            const w = viewport.clientWidth;
+            const h = viewport.clientHeight;
+            const currentRatio = w / h;
+            const canvasH = Math.min(h, 2160);
+            const canvasW = Math.round(canvasH * currentRatio);
+
+            if (bgCanvas.width !== canvasW || bgCanvas.height !== canvasH) {
+                bgCanvas.width = canvasW;
+                bgCanvas.height = canvasH;
+            }
+
+            bgCtx.fillStyle = '#6A0900';
+            bgCtx.fillRect(0, 0, canvasW, canvasH);
+
+            if (videoElement.readyState >= videoElement.HAVE_CURRENT_DATA) {
+                const srcW = videoElement.videoWidth;
+                const srcH = videoElement.videoHeight;
+                const srcRatio = srcW / srcH;
+                const targetDrawH = srcRatio <= (canvasW / canvasH) ? canvasH : canvasW / srcRatio;
+                const targetDrawW = srcRatio <= (canvasW / canvasH) ? canvasH * srcRatio : canvasW;
+                const nearestEvenOrFive = Math.ceil(Math.ceil(targetDrawH / srcH) / 2) * 2;
+                const nnW = Math.round(srcW * nearestEvenOrFive);
+                const nnH = Math.round(srcH * nearestEvenOrFive);
+
+                if (offscreenCanvas.width !== nnW || offscreenCanvas.height !== nnH) {
+                    offscreenCanvas.width = nnW;
+                    offscreenCanvas.height = nnH;
+                }
+
+                offscreenCtx.imageSmoothingEnabled = false;
+                offscreenCtx.drawImage(videoElement, 0, 0, nnW, nnH);
+
+                if (overlayStep >= 1 && enemyImg.complete && enemyImg.naturalWidth) offscreenCtx.drawImage(enemyImg, 0, 0, nnW, nnH);
+                if (overlayStep >= 2 && uiImg.complete && uiImg.naturalWidth) offscreenCtx.drawImage(uiImg, 0, 0, nnW, nnH);
+
+                const drawX = (canvasW - targetDrawW) / 2;
+                const drawY = (canvasH - targetDrawH) / 2;
+
+                bgCtx.save();
+                bgCtx.imageSmoothingEnabled = true;
+
+                let activeStretch = imageStretch;
+                if ((Math.abs(imageStretch - 0.875) < 0.01 && Math.abs(srcRatio - 1.14285) < 0.02) ||
+                    (Math.abs(imageStretch - 1.16667) < 0.01 && Math.abs(srcRatio - 1.33333) < 0.02)) {
+                    activeStretch = 1.0;
+                }
+
+                bgCtx.translate(drawX + targetDrawW / 2, 0);
+                bgCtx.scale(activeStretch, 1);
+                bgCtx.translate(-(drawX + targetDrawW / 2), 0);
+
+                bgCtx.drawImage(offscreenCanvas, drawX, drawY, targetDrawW, targetDrawH);
+                bgCtx.restore();
+
+                if (isMenuVisible) {
+                    const scaleFactor = ((Math.round((targetDrawH / srcH) / 2) * 2) / 2);
+                    contextMenu.style.left = `${menuCoords.x}px`;
+                    contextMenu.style.top = `${menuCoords.y}px`;
+                    menuCanvas.style.width = `${76 * scaleFactor}px`;
+                    menuCanvas.style.height = `${32 * scaleFactor}px`;
+                }
+            }
+        }
+
+        requestAnimationFrame(render);
+    </script>
+</body>
+</html>
